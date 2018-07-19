@@ -14,8 +14,8 @@ This page details all runtime OSS dependencies of `@atomist/sdm-pack-xray`.
 |[BSD](#bsd)|1|
 |[CC-BY-3.0](#cc-by-30)|3|
 |[CC0-1.0](#cc0-10)|1|
-|[ISC](#isc)|20|
-|[MIT](#mit)|105|
+|[ISC](#isc)|19|
+|[MIT](#mit)|103|
 |[Unlicense](#unlicense)|1|
 
 #### Apache-2.0
@@ -74,7 +74,7 @@ ISC License - [https://www.isc.org/downloads/software-support-policy/isc-license
 |`fs.realpath`|`1.0.0`|Isaac Z. Schlueter|[https://github.com/isaacs/fs.realpath](https://github.com/isaacs/fs.realpath)|
 |`glob`|`7.1.2`|Isaac Z. Schlueter|[https://github.com/isaacs/node-glob](https://github.com/isaacs/node-glob)|
 |`graceful-fs`|`4.1.11`||[https://github.com/isaacs/node-graceful-fs](https://github.com/isaacs/node-graceful-fs)|
-|`hosted-git-info`|`2.6.0`|Rebecca Turner|[https://github.com/npm/hosted-git-info](https://github.com/npm/hosted-git-info)|
+|`hosted-git-info`|`2.7.1`|Rebecca Turner|[https://github.com/npm/hosted-git-info](https://github.com/npm/hosted-git-info)|
 |`inflight`|`1.0.6`|Isaac Z. Schlueter|[https://github.com/npm/inflight](https://github.com/npm/inflight)|
 |`inherits`|`2.0.3`||[https://github.com/isaacs/inherits](https://github.com/isaacs/inherits)|
 |`minimatch`|`3.0.4`|Isaac Z. Schlueter|[https://github.com/isaacs/minimatch](https://github.com/isaacs/minimatch)|
@@ -94,7 +94,7 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 | Name | Version | Publisher | Repository |
 |------|---------|-----------|------------|
 |`@octokit/rest`|`15.9.4`|Gregor Martynus|[https://github.com/octokit/rest.js](https://github.com/octokit/rest.js)|
-|`agent-base`|`4.2.0`|Nathan Rajlich|[https://github.com/TooTallNate/node-agent-base](https://github.com/TooTallNate/node-agent-base)|
+|`agent-base`|`4.2.1`|Nathan Rajlich|[https://github.com/TooTallNate/node-agent-base](https://github.com/TooTallNate/node-agent-base)|
 |`ansi-regex`|`3.0.0`|Sindre Sorhus|[https://github.com/chalk/ansi-regex](https://github.com/chalk/ansi-regex)|
 |`ansi-styles`|`3.2.1`|Sindre Sorhus|[https://github.com/chalk/ansi-styles](https://github.com/chalk/ansi-styles)|
 |`array-find-index`|`1.0.2`|Sindre Sorhus|[https://github.com/sindresorhus/array-find-index](https://github.com/sindresorhus/array-find-index)|
@@ -144,7 +144,6 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 |`is-word-character`|`1.0.2`|Titus Wormer|[https://github.com/wooorm/is-word-character](https://github.com/wooorm/is-word-character)|
 |`json-parse-better-errors`|`1.0.2`|Kat Marchán|[https://github.com/zkat/json-parse-better-errors](https://github.com/zkat/json-parse-better-errors)|
 |`jsonfile`|`4.0.0`|JP Richardson|[https://github.com/jprichardson/node-jsonfile](https://github.com/jprichardson/node-jsonfile)|
-|`line-reader`|`0.2.4`|Nick Ewing|[git+https://nickewing@github.com/nickewing/line-reader](git+https://nickewing@github.com/nickewing/line-reader)|
 |`lodash`|`4.17.10`|John-David Dalton|[https://github.com/lodash/lodash](https://github.com/lodash/lodash)|
 |`longest-streak`|`2.0.2`|Titus Wormer|[https://github.com/wooorm/longest-streak](https://github.com/wooorm/longest-streak)|
 |`markdown-escapes`|`1.0.2`|Titus Wormer|[https://github.com/wooorm/markdown-escapes](https://github.com/wooorm/markdown-escapes)|
@@ -166,7 +165,6 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 |`remark-reference-links`|`4.0.1`|Titus Wormer|[https://github.com/wooorm/remark-reference-links](https://github.com/wooorm/remark-reference-links)|
 |`remark-stringify`|`5.0.0`|Titus Wormer|[https://github.com/remarkjs/remark/tree/master/packages/remark-stringify](https://github.com/remarkjs/remark/tree/master/packages/remark-stringify)|
 |`remark`|`9.0.0`|Titus Wormer|[https://github.com/remarkjs/remark/tree/master/packages/remark](https://github.com/remarkjs/remark/tree/master/packages/remark)|
-|`remove-markdown`|`0.2.2`|Stian Grytøyr|[https://github.com/stiang/remove-markdown](https://github.com/stiang/remove-markdown)|
 |`repeat-string`|`1.6.1`|Jon Schlinkert|[https://github.com/jonschlinkert/repeat-string](https://github.com/jonschlinkert/repeat-string)|
 |`replace-ext`|`1.0.0`|Gulp Team|[https://github.com/gulpjs/replace-ext](https://github.com/gulpjs/replace-ext)|
 |`slash`|`1.0.0`|Sindre Sorhus|[https://github.com/sindresorhus/slash](https://github.com/sindresorhus/slash)|
