@@ -1,0 +1,604 @@
+{
+    "buildInfo": {
+        "properties": {
+            "java.vendor": "Oracle Corporation",
+            "buildInfo.env.USER": "jenkins",
+            "sun.java.launcher": "SUN_STANDARD",
+            "buildInfo.env.BUILD_TAG": "jenkins-atomisthq-step1-create-application-war-file-35",
+            "sun.management.compiler": "HotSpot 64-Bit Tiered Compilers",
+            "buildInfo.env.DERBY_HOME": "/usr/lib/jvm/java-8-oracle/db",
+            "os.name": "Linux",
+            "buildInfo.env.PATH": "/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/lib/jvm/java-8-oracle/bin:/usr/lib/jvm/java-8-oracle/db/bin:/usr/lib/jvm/java-8-oracle/jre/bin",
+            "buildInfo.env.J2REDIR": "/usr/lib/jvm/java-8-oracle/jre",
+            "buildInfo.env.LOGNAME": "jenkins",
+            "sun.boot.class.path": "/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes",
+            "buildInfo.env.RUN_CHANGES_DISPLAY_URL": "http://jfrog.local:8080/job/atomisthq-step1-create-application-war-file/35/display/redirect?page=changes",
+            "java.vm.specification.vendor": "Oracle Corporation",
+            "java.runtime.version": "1.8.0_161-b12",
+            "user.name": "jenkins",
+            "buildInfo.env.JENKINS_NODE_COOKIE": "10ad865a-cb14-4af1-a2be-d1772405afc4",
+            "buildInfo.env.generated.build.info": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file@tmp/generated.build.info2287788448229006353.json",
+            "buildInfo.env.JOB_BASE_NAME": "atomisthq-step1-create-application-war-file",
+            "buildInfo.env.buildInfoConfig.propertiesFile": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file@tmp/buildInfo765035215182003737.properties",
+            "buildInfo.env.J2SDKDIR": "/usr/lib/jvm/java-8-oracle",
+            "buildInfo.env.BUILD_URL": "http://jfrog.local:8080/job/atomisthq-step1-create-application-war-file/35/",
+            "buildInfo.env.GRADLE_TOOL": "gradle-3.5",
+            "user.language": "en",
+            "buildInfo.env.CLEAN_REPO": "YES",
+            "buildInfo.env.JENKINS_HOME": "/var/lib/jenkins",
+            "sun.boot.library.path": "/usr/lib/jvm/java-8-oracle/jre/lib/amd64",
+            "buildInfo.env.SERVER_ID": "artifactory-ha",
+            "buildInfo.env.SERVER_URL": "http://jfrog.local/artifactory",
+            "buildInfo.env.HUDSON_URL": "http://jfrog.local:8080/",
+            "buildInfo.env.WORKSPACE": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file",
+            "buildInfo.env.HUDSON_COOKIE": "d533dca9-7438-4945-b893-8546b0e5b972",
+            "buildInfo.env.GRADLE_HOME": "/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-3.5",
+            "java.version": "1.8.0_161",
+            "user.timezone": "Etc/UTC",
+            "buildInfo.env.JENKINS_SERVER_COOKIE": "a9cc86746e6b98a9",
+            "buildInfo.env.BUILD_ID": "35",
+            "sun.arch.data.model": "64",
+            "java.endorsed.dirs": "/usr/lib/jvm/java-8-oracle/jre/lib/endorsed",
+            "sun.cpu.isalist": "",
+            "sun.jnu.encoding": "UTF-8",
+            "file.encoding.pkg": "sun.io",
+            "file.separator": "/",
+            "java.specification.name": "Java Platform API Specification",
+            "buildInfo.env.JOB_URL": "http://jfrog.local:8080/job/atomisthq-step1-create-application-war-file/",
+            "java.class.version": "52.0",
+            "user.country": "US",
+            "java.home": "/usr/lib/jvm/java-8-oracle/jre",
+            "java.vm.info": "mixed mode",
+            "os.version": "3.16.0-4-amd64",
+            "buildInfo.env.EXECUTOR_NUMBER": "1",
+            "buildInfo.env._": "/usr/bin/daemon",
+            "path.separator": ":",
+            "java.vm.version": "25.161-b12",
+            "buildInfo.env.XRAY_SCAN": "YES",
+            "user.variant": "",
+            "java.awt.printerjob": "sun.print.PSPrinterJob",
+            "sun.io.unicode.encoding": "UnicodeLittle",
+            "buildInfo.env.HUDSON_HOME": "/var/lib/jenkins",
+            "awt.toolkit": "sun.awt.X11.XToolkit",
+            "buildInfo.env.SHELL": "/bin/bash",
+            "buildInfo.env.PWD": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file",
+            "buildInfo.env.HOME": "/var/lib/jenkins",
+            "user.home": "/var/lib/jenkins",
+            "buildInfo.env.BUILDINFO_PROPFILE": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file@tmp/buildInfo765035215182003737.properties",
+            "buildInfo.env.GIT_COMMIT": "ada71bd4e4c60bc06c30f96e0a6ef38a71ca9cb5",
+            "java.specification.vendor": "Oracle Corporation",
+            "buildInfo.env.DEPLOY_REPO": "gradle-release",
+            "library.jansi.path": "/var/lib/jenkins/.gradle/native/jansi/1.14/linux64",
+            "java.library.path": "/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib",
+            "java.vendor.url": "http://java.oracle.com/",
+            "buildInfo.env.JENKINS_URL": "http://jfrog.local:8080/",
+            "java.vm.vendor": "Oracle Corporation",
+            "java.runtime.name": "Java(TM) SE Runtime Environment",
+            "sun.java.command": "org.gradle.launcher.daemon.bootstrap.GradleDaemon 3.5",
+            "java.class.path": "/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-3.5/lib/gradle-launcher-3.5.jar",
+            "buildInfo.env.NODE_PATH": "/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript",
+            "buildInfo.env.SHLVL": "1",
+            "org.gradle.appname": "gradle",
+            "java.vm.specification.name": "Java Virtual Machine Specification",
+            "java.vm.specification.version": "1.8",
+            "sun.os.patch.level": "unknown",
+            "sun.cpu.endian": "little",
+            "buildInfo.env.OLDPWD": "/var/lib/jenkins/tools/hudson.plugins.gradle.GradleInstallation/gradle-3.5",
+            "java.io.tmpdir": "/tmp",
+            "buildInfo.env.MAIL": "/var/mail/jenkins",
+            "buildInfo.env.BUILD_DISPLAY_NAME": "#35",
+            "java.vendor.url.bug": "http://bugreport.sun.com/bugreport/",
+            "buildInfo.env.NODE_NAME": "master",
+            "buildInfo.env.RUN_DISPLAY_URL": "http://jfrog.local:8080/job/atomisthq-step1-create-application-war-file/35/display/redirect",
+            "buildInfo.env.extractor.used": "true",
+            "os.arch": "amd64",
+            "java.awt.graphicsenv": "sun.awt.X11GraphicsEnvironment",
+            "java.ext.dirs": "/usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext",
+            "user.dir": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file",
+            "buildInfo.env.JOB_DISPLAY_URL": "http://jfrog.local:8080/job/atomisthq-step1-create-application-war-file/display/redirect",
+            "line.separator": "\n",
+            "java.vm.name": "Java HotSpot(TM) 64-Bit Server VM",
+            "buildInfo.env.JAVA_HOME": "/usr/lib/jvm/java-8-oracle",
+            "buildInfo.env.NODE_LABELS": "master",
+            "buildInfo.env.HUDSON_SERVER_COOKIE": "a9cc86746e6b98a9",
+            "file.encoding": "UTF-8",
+            "buildInfo.env.deployable.artifacts": "/var/lib/jenkins/workspace/atomisthq-step1-create-application-war-file@tmp/deployable.artifacts2852422039828783191.json",
+            "buildInfo.env.LANG": "en_US.UTF-8",
+            "buildInfo.env.BUILD_NUMBER": "35",
+            "java.specification.version": "1.8",
+            "buildInfo.env.JOB_NAME": "atomisthq-step1-create-application-war-file"
+        },
+        "version": "1.0.1",
+        "name": "atomisthq-step1-create-application-war-file",
+        "number": "35",
+        "type": "GENERIC",
+        "buildAgent": {
+            "name": "Pipeline",
+            "version": ""
+        },
+        "agent": {
+            "name": "Jenkins",
+            "version": "2.89.4"
+        },
+        "started": "2018-04-23T23:49:04.995+0000",
+        "durationMillis": 14892,
+        "principal": "admin",
+        "artifactoryPrincipal": "jenkins",
+        "artifactoryPluginVersion": "2.15.0",
+        "url": "http://jfrog.local:8080/job/atomisthq-step1-create-application-war-file/35/",
+        "vcs": [
+            {
+                "revision": "ada71bd4e4c60bc06c30f96e0a6ef38a71ca9cb5",
+                "url": "https://github.com/atomisthq/project-examples",
+                "empty": false
+            }
+        ],
+        "vcsRevision": "ada71bd4e4c60bc06c30f96e0a6ef38a71ca9cb5",
+        "vcsUrl": "https://github.com/atomisthq/project-examples",
+        "licenseControl": {
+            "runChecks": false,
+            "includePublishedArtifacts": false,
+            "autoDiscover": false,
+            "licenseViolationsRecipientsList": "",
+            "scopesList": ""
+        },
+        "modules": [
+            {
+                "id": "org.jfrog.example.gradle:services:1.1.2",
+                "artifacts": [
+                    {
+                        "type": "jar",
+                        "sha1": "4049cc0178b9592be35191b80c09c66f2b0dc505",
+                        "sha256": "79d69c981cfbfe53ec57ac4c65be4fd1b04bcb3898b1e79a31aca6019ff6a6f3",
+                        "md5": "1c77c8ad828cff4b67b332bf60a29f17",
+                        "name": "services-1.1.2.jar"
+                    },
+                    {
+                        "type": "ivy",
+                        "sha1": "6e432a83f9e27e42dea906fb4c04934cb61b677d",
+                        "sha256": "a150de1a3cc2a53d13a225c0c1a8f85d20f70ffd2ac8689d1ebafa7b2e1ae1f0",
+                        "md5": "93014f1f8e4cc9ff5ed34bf163aad3d8",
+                        "name": "ivy-1.1.2.xml"
+                    },
+                    {
+                        "type": "pom",
+                        "sha1": "840fefdebf987021366f7a6f932c3913b08c86f9",
+                        "sha256": "419d53b4beacb2cb0490b13f2118bd6562b5a763c5ed2c00ec8fb4e4a5e76c18",
+                        "md5": "730282936fbd6db51666577993e53426",
+                        "name": "services-1.1.2.pom"
+                    }
+                ],
+                "excludedArtifacts": [],
+                "dependencies": []
+            },
+            {
+                "id": "org.jfrog.example.gradle:shared:1.1.2",
+                "artifacts": [
+                    {
+                        "type": "jar",
+                        "sha1": "aca77455e4d12cb84d55001780cf57e504b1d20b",
+                        "sha256": "0b67e49ff6a661838b2e78bde549ac8385f7932553cc4f9b34220a9a8264d59d",
+                        "md5": "a09f05aeddfbf087eb633800fa168881",
+                        "name": "shared-1.1.2.jar"
+                    },
+                    {
+                        "type": "ivy",
+                        "sha1": "99c2576962f02eda55c232dd4380d4d17ec934ad",
+                        "sha256": "dcd0fd3db89b02e495ae000a488880e9cab5abf6f72a08c1a9d735f35e91770f",
+                        "md5": "e8677ac4006651b30ee4df9b81051b9c",
+                        "name": "ivy-1.1.2.xml"
+                    },
+                    {
+                        "type": "pom",
+                        "sha1": "3bd9db7e4b29334eb0b0622c8da4bce067473c7c",
+                        "sha256": "2be82f180507c03936af91187bb869f7673b19e47b273691f7de654060d08b5a",
+                        "md5": "9bdf16200987b3a2229a185a59e85037",
+                        "name": "shared-1.1.2.pom"
+                    }
+                ],
+                "excludedArtifacts": [],
+                "dependencies": []
+            },
+            {
+                "id": "org.jfrog.example.gradle:webservice:1.1.2",
+                "artifacts": [
+                    {
+                        "type": "war",
+                        "sha1": "e9d961fdec959efd89120c64d4291267c49bbb00",
+                        "sha256": "212a4c866429991b9952530b2f08e592d866364f5f9cadb4b1bff0a67fd95664",
+                        "md5": "ce8e9341fdedd20357967d08658ff954",
+                        "name": "webservice-1.1.2.war"
+                    },
+                    {
+                        "type": "ivy",
+                        "sha1": "49af1f406f40743e88c653ad09b47b5d8e6af5ce",
+                        "sha256": "97bb231f96a6edcd958bde44fb4767f6343a2d45b3e9ca0bff63e64d145065f5",
+                        "md5": "e2f5c5f85790b94cbabee20b8dcb32b7",
+                        "name": "ivy-1.1.2.xml"
+                    },
+                    {
+                        "type": "pom",
+                        "sha1": "d9d90f886e2318168e0e96297820e837aa78b58a",
+                        "sha256": "5029b9fd0e4cd4d5c97d83eae9cd16cbe722e1dfecb90984dcee16d5bfbe7e02",
+                        "md5": "6af6569cebfc48d5cd12f64263aade9a",
+                        "name": "webservice-1.1.2.pom"
+                    }
+                ],
+                "excludedArtifacts": [],
+                "dependencies": [
+                    {
+                        "type": "jar",
+                        "sha1": "aca77455e4d12cb84d55001780cf57e504b1d20b",
+                        "sha256": "0b67e49ff6a661838b2e78bde549ac8385f7932553cc4f9b34220a9a8264d59d",
+                        "md5": "a09f05aeddfbf087eb633800fa168881",
+                        "id": "org.jfrog.example.gradle:shared:1.1.2",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "f951934aa5ae5a88d7e6dfaa6d32307d834a88be",
+                        "sha256": "093fea360752de55afcb80cf713403eb1a66cb7dc0d529955b6f4a96f975df5c",
+                        "md5": "7b9216b608d550787bdf43a63d88bf3b",
+                        "id": "commons-collections:commons-collections:3.2",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "16313e02a793435009f1e458fa4af5d879f6fb11",
+                        "sha256": "2c73b940c91250bc98346926270f13a6a10bb6e29d2c9316a70d134e382c873e",
+                        "md5": "237a8e845441bad2e535c57d985c8204",
+                        "id": "commons-lang:commons-lang:2.4",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "14dd208c9077c462b813ed41c21c57f6a8153694",
+                        "sha256": "4c1663206e41df74d01c6669c34a2b9bbefe6b32d593a3a518309de2d41f7f5f",
+                        "md5": "4cad3d21b85b369c8b00dfb84e270e02",
+                        "id": "org.apache.wicket:wicket:1.3.7",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "13670bc2d949722b20ab621c34ee6ac84c10695f",
+                        "sha256": "a60c9fe6b97bebc070a7c4b3235c331d62bec2473121abee1e127cfa4975ce30",
+                        "md5": "d5fb78a249be9df975272d88b9143ab0",
+                        "id": "org.apache.struts:struts2-core:2.3.14",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "4e031bb61df09069aeb2bffb4019e7a5034a4ee0",
+                        "sha256": "90a8e1603eeca48e7e879f3afbc9560715322985f39a274f6f6070b43f9d06fe",
+                        "md5": "3c42be5ea7cbf3635716abbb429cb90d",
+                        "id": "junit:junit:4.11",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "3e9032bf17fdb82fdc05f418c2a0c11829bfed07",
+                        "sha256": "3a1057c323c5996a555baad15ef3b72a683f31ce0ffc083c647d911f81bf30bf",
+                        "md5": "e4112597d224489f703dd141acf0a030",
+                        "id": "org.jfrog.example.gradle:api:1.1.2",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "61fce919969d134a4fa2ba4fd5bf151ea63fce13",
+                        "sha256": "7b61ec85ca6b6b3d0ecead9a378518f630df406269ab5cacd0be9c21dc27c297",
+                        "md5": "2d673736b993aa112fda47b9061e4e48",
+                        "id": "org.slf4j:slf4j-api:1.4.2",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "8510e2e521d145d7c31197d29c4de602f314de9b",
+                        "sha256": "8f0f4784bef420d2d5ac40d7cf19acc4000f15347ebc4703c9574df7f7fb895b",
+                        "md5": "9eba950875f8056c7f2d95c2e5b0298b",
+                        "id": "org.apache.struts.xwork:xwork-core:2.3.14",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "a251045e5fadd02824d17f1aa8c412accf1aa1c9",
+                        "sha256": "c26923394f3f1cf0427f515ee3bb6be66d1a7f4261e6d6f0504fdec63ab85da8",
+                        "md5": "03358fb59a2260a0c37f063e2ba58436",
+                        "id": "org.freemarker:freemarker:2.3.19",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "a3665cf8e3426686ee751790f3d1e1ec5705e9dc",
+                        "sha256": "3e9c7968f61371bb231df316123e6740944f72b59675843574c2f42d5e9f33cb",
+                        "md5": "2a8fb06b52574e498ed256b8fc64055e",
+                        "id": "ognl:ognl:3.0.6",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "1e48256a2341047e7d729217adeec8217f6e3a1a",
+                        "sha256": "939e5d9a239407f57237b2fb2ad02cefca782905b2ac32f83826a7c4ad083667",
+                        "md5": "a0ad9550a7062ddb6528d8725c8230dd",
+                        "id": "commons-fileupload:commons-fileupload:1.2.2",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "42a25dc3219429f0e5d060061f71acb49bf010a0",
+                        "sha256": "66fdef91e9739348df7a096aa384a5685f4e875584cce89386a7a47251c4d8e9",
+                        "md5": "6393363b47ddcbba82321110c3e07519",
+                        "id": "org.hamcrest:hamcrest-core:1.3",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "336a280d178bb957e5233189f0f32e067366c4e5",
+                        "sha256": "7afd18f30e98c92bf873b64bafeea43b4abdeaba62a4e50e1b6b2d00405ef7ef",
+                        "md5": "cd69c70d6c078f4340bd5e867ec6f1b6",
+                        "id": "commons-httpclient:commons-httpclient:3.0",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "905075e6c80f206bbe6cf1e809d2caa69f420c76",
+                        "sha256": "131f0519a8e4602e47cf024bfd7e0834bcf5592a7207f9a2fdb711d4f5afc166",
+                        "md5": "71b48e6b3e1b1dc73fe705604b9c7584",
+                        "id": "org.apache.commons:commons-lang3:3.1",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "fb0f302a91a376fd5cfe23167c419375e8fc9b8f",
+                        "sha256": "07e685c385c652a3d2c4a08312004f653ba508e325d70ff3d9e8687d1ac6a8da",
+                        "md5": "968575ef15e4024d205fa6ecddec67a9",
+                        "id": "asm:asm:3.3",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "3630d2095238beee3f94670af3d9a9dc115ce887",
+                        "sha256": "1cc6e5bcfab550397289875ac133d86562d4ec2f3875afa7c5c033d1f0ee96af",
+                        "md5": "47d6178194c38fc70d4e27db08ae5d10",
+                        "id": "asm:asm-commons:3.3",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "2c00105734a57e9ee4f27e4b17cd43200e5f0ff8",
+                        "sha256": "aa8c27fc46be68c58c25eab15bf3073587945e009455385da78439dea684ef58",
+                        "md5": "cb8f91e65864b85c8c6f87164e3252a5",
+                        "id": "javassist:javassist:3.11.0.GA",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "760c711c71588bc273d3e56d196d720a7678cd93",
+                        "sha256": "bcfa023daea8525d6db029ea82e8f58dbf1a06006db6526d9f984dbf215d8a75",
+                        "md5": "5bc8bdd15b18018e84fd862993aaca42",
+                        "id": "commons-logging:commons-logging:1.0.3",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "397f4731a9f9b6eb1907e224911c77ea3aa27a8b",
+                        "sha256": "9898a3b3857676128987b975d0b0f035becf3da5cf677266a34d6636f2b80542",
+                        "md5": "2617b220009f952bb9542af167d040cf",
+                        "id": "commons-codec:commons-codec:1.2",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "33c13070f194e1f0385877ec9306a24e983b00e3",
+                        "sha256": "d0d8a92d855a015db402675af123c8f39010501ba1d34a5072301ce6caf137ea",
+                        "md5": "3eeafc985d3ca624abf2d3ad549180d0",
+                        "id": "asm:asm-tree:3.3",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "7ffdb02f95af1c1a208544e076cea5b8e66e731a",
+                        "sha256": "2a3f5a206480863aae9dff03f53c930c3add6912f8785498d59442c7ebb98c5c",
+                        "md5": "edb9481c6eee07f4feaa61502af855da",
+                        "id": "commons-io:commons-io:2.0.1",
+                        "scopes": [
+                            "compileClasspath",
+                            "runtimeClasspath"
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": "org.jfrog.example.gradle:api:1.1.2",
+                "artifacts": [
+                    {
+                        "type": "jar",
+                        "sha1": "3e9032bf17fdb82fdc05f418c2a0c11829bfed07",
+                        "sha256": "3a1057c323c5996a555baad15ef3b72a683f31ce0ffc083c647d911f81bf30bf",
+                        "md5": "e4112597d224489f703dd141acf0a030",
+                        "name": "api-1.1.2.jar"
+                    },
+                    {
+                        "type": "ivy",
+                        "sha1": "3dc964b2bcaf2e420e7661268788f3c6915f3ee6",
+                        "sha256": "8ac184cdf157acafb441eb9f331675c9dd4bf2ef519658eaa9cf7a455cbda615",
+                        "md5": "260bb95c0cbf73781f30074accd76120",
+                        "name": "ivy-1.1.2.xml"
+                    },
+                    {
+                        "type": "pom",
+                        "sha1": "dea4726092b2fec47e1fbe7c47b2db21a711b383",
+                        "sha256": "5e6a1fe744cd90361caccff1e3a265fbf6483d94b0e35b3034c2cadc47524aeb",
+                        "md5": "5ff73a9c8458a28b6de478427c6957ea",
+                        "name": "api-1.1.2.pom"
+                    }
+                ],
+                "excludedArtifacts": [],
+                "dependencies": [
+                    {
+                        "type": "jar",
+                        "sha1": "aca77455e4d12cb84d55001780cf57e504b1d20b",
+                        "sha256": "0b67e49ff6a661838b2e78bde549ac8385f7932553cc4f9b34220a9a8264d59d",
+                        "md5": "a09f05aeddfbf087eb633800fa168881",
+                        "id": "org.jfrog.example.gradle:shared:1.1.2",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "16313e02a793435009f1e458fa4af5d879f6fb11",
+                        "sha256": "2c73b940c91250bc98346926270f13a6a10bb6e29d2c9316a70d134e382c873e",
+                        "md5": "237a8e845441bad2e535c57d985c8204",
+                        "id": "commons-lang:commons-lang:2.4",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "14dd208c9077c462b813ed41c21c57f6a8153694",
+                        "sha256": "4c1663206e41df74d01c6669c34a2b9bbefe6b32d593a3a518309de2d41f7f5f",
+                        "md5": "4cad3d21b85b369c8b00dfb84e270e02",
+                        "id": "org.apache.wicket:wicket:1.3.7",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "336a280d178bb957e5233189f0f32e067366c4e5",
+                        "sha256": "7afd18f30e98c92bf873b64bafeea43b4abdeaba62a4e50e1b6b2d00405ef7ef",
+                        "md5": "cd69c70d6c078f4340bd5e867ec6f1b6",
+                        "id": "commons-httpclient:commons-httpclient:3.0",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "0ad6ae511ca4608a18317fcb19850fd113bb2ae8",
+                        "sha256": "8d952b8badef1f92d0c401d58ea459bb0632d59ac02c19c1b48a552dfab9159d",
+                        "md5": "b0bf5f906af5a936992514ed087f1fa2",
+                        "id": "commons-io:commons-io:1.2",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "61fce919969d134a4fa2ba4fd5bf151ea63fce13",
+                        "sha256": "7b61ec85ca6b6b3d0ecead9a378518f630df406269ab5cacd0be9c21dc27c297",
+                        "md5": "2d673736b993aa112fda47b9061e4e48",
+                        "id": "org.slf4j:slf4j-api:1.4.2",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "99129f16442844f6a4a11ae22fbbee40b14d774f",
+                        "sha256": "b58e459509e190bed737f3592bc1950485322846cf10e78ded1d065153012d70",
+                        "md5": "1f40fb782a4f2cf78f161d32670f7a3a",
+                        "id": "junit:junit:3.8.1",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "760c711c71588bc273d3e56d196d720a7678cd93",
+                        "sha256": "bcfa023daea8525d6db029ea82e8f58dbf1a06006db6526d9f984dbf215d8a75",
+                        "md5": "5bc8bdd15b18018e84fd862993aaca42",
+                        "id": "commons-logging:commons-logging:1.0.3",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    },
+                    {
+                        "type": "jar",
+                        "sha1": "397f4731a9f9b6eb1907e224911c77ea3aa27a8b",
+                        "sha256": "9898a3b3857676128987b975d0b0f035becf3da5cf677266a34d6636f2b80542",
+                        "md5": "2617b220009f952bb9542af167d040cf",
+                        "id": "commons-codec:commons-codec:1.2",
+                        "scopes": [
+                            "compileClasspath"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "buildDependencies": [],
+        "governance": {
+            "blackDuckProperties": {
+                "runChecks": false,
+                "includePublishedArtifacts": false,
+                "autoCreateMissingComponentRequests": false,
+                "autoDiscardStaleComponentRequests": false
+            }
+        }
+    },
+    "uri": "http://35.224.149.73:80/artifactory/api/build/atomisthq-step1-create-application-war-file/35"
+}

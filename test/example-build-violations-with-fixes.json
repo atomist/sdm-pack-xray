@@ -1,0 +1,3023 @@
+{
+    "build": {
+        "name": "atomisthq-step1-create-application-war-file",
+        "path": "artifactory-ha/builds/atomisthq-step1-create-application-war-file",
+        "pkg_type": "Build",
+        "sha256": "24436f2d6ac89b800574a402c90f422d924941b09b0b6a69acea76ea24bd111a",
+        "component_id": "atomisthq-step1-create-application-war-file:105"
+    },
+    "issues": [
+        {
+            "summary": "[CVE-2016-3092]  Improper Input Validation",
+            "description": "The MultipartStream class in Apache Commons Fileupload before 1.3.2, as used in Apache Tomcat 7.x before 7.0.70, 8.x before 8.0.36, 8.5.x before 8.5.3, and 9.x before 9.0.0.M7 and other products, allows remote attackers to cause a denial of service (CPU consumption) via a long boundary string.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3092",
+                    "cvss_v2": "7.8"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.169Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-0248]  Permissions, Privileges, and Access Controls",
+            "description": "The default configuration of javax.servlet.context.tempdir in Apache Commons FileUpload 1.0 through 1.2.2 uses the /tmp directory for uploaded files, which allows local users to overwrite arbitrary files via an unspecified symlink attack.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-0248",
+                    "cvss_v2": "3.3"
+                }
+            ],
+            "created": "2017-03-28T00:00:00.203Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "Dynamic Method Executions",
+            "description": "Dynamic Method Executions",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-4316",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:C/I:C/A:C",
+                    "cvss_v3": "9.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.785Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.15.2,3)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2014-0116]  Permissions, Privileges, and Access Controls",
+            "description": "CookieInterceptor in Apache Struts 2.x before 2.3.16.3, when a wildcard cookiesName value is used, does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and modify session state via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0113.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0116",
+                    "cvss_v2": "5.8"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.258Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2014-0050]  Permissions, Privileges, andAccess Controls",
+            "description": "MultipartStream.java in Apache Commons FileUpload before 1.3.1, as used in Apache Tomcat, JBoss Web, and other products, allows remote attackers to cause a denial of service (infinite loop and CPU consumption) via a crafted Content-Type header that bypasses a loop's intended exit conditions.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0050",
+                    "cvss_v2": "7.5"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.754Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "Cross-Site Scripting vulnerability on 'Problem Report' screen",
+            "description": "> When the Struts2 debug mode is turned on, under certain conditions an arbitrary script may be executed in the 'Problem Report' screen. Also if JSP files are exposed to be accessed directly it's possible to execute an arbitrary script.> > --[apache.org](https://struts.apache.org/docs/s2-025.html)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-04-12T00:00:00.382Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The AdminUI in HPE Operations Manager (OM) before 9.21.130 onLinux, Unix, and Solaris allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "The AdminUI in HPE Operations Manager (OM) before 9.21.130 on Linux, Unix, and Solaris allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4373",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.388Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "HP Continuous Delivery Automation (CDA) 1.30 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "HP Continuous Delivery Automation (CDA) 1.30 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1986",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.769Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Cross-site Scripting (XSS)",
+            "description": "Cross-site Scripting (XSS)",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2015-5169",
+                    "cwe": [
+                        "CWE-79"
+                    ],
+                    "cvss_v3": "5.4/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.832Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.20,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-4003]  Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\")",
+            "description": "Cross-site scripting (XSS) vulnerability in the URLDecoder function in JRE before 1.8, as used in Apache Struts 2.x before 2.3.28, when using a single byte page encoding, allows remote attackers to inject arbitrary web script or HTML via multi-byte characters in a url-encoded parameter.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4003",
+                    "cvss_v2": "4.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.377Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The ParametersInterceptor in Apache Struts before 2.3.16.1 allows remote attackers to \"manipulate\" the ClassLoader via the class parameter, which is passed to the getClass method.",
+            "description": "The ParametersInterceptor in Apache Struts before 2.3.16.1 allows remote attackers to \"manipulate\" the ClassLoader via the class parameter, which is passed to the getClass method.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0094",
+                    "cvss_v2": "5.0/AV:N/AC:L/Au:N/C:N/I:P/A:N"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.796Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The Jakarta Multipart parser in Apache Struts 2 2.3.x before 2.3.32 and 2.5.x before 2.5.10.1 mishandles file upload, which allows remote attackers to execute arbitrary commands via a #cmd= string in a crafted Content-Type HTTP header, as exploited in the wild in March 2017.",
+            "description": "The Jakarta Multipart parser in Apache Struts 2 2.3.x before 2.3.32 and 2.5.x before 2.5.10.1 mishandles file upload, which allows remote attackers to execute arbitrary commands via a #cmd= string in a crafted Content-Type HTTP header, as exploited in the wild in March 2017.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-5638",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "10.0"
+                }
+            ],
+            "created": "2017-03-10T00:00:00.317Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2014-0112]  Permissions, Privileges, and Access Controls",
+            "description": "ParametersInterceptor in Apache Struts before 2.3.16.2 does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0094.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0112",
+                    "cvss_v2": "7.5"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.250Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2012-5783]  Improper Input Validation",
+            "description": "Apache Commons HttpClient 3.x, as used in Amazon Flexible Payments Service (FPS) merchant Java SDK and other products, does not verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2012-5783",
+                    "cvss_v2": "5.8"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.632Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-httpclient-3.0.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://apache-httpclient:commons-httpclient:3.0.1"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.0.0 through 2.3.15.1 allows remote attackers to bypass access controls via a crafted action: prefix.",
+            "description": "Apache Struts 2.0.0 through 2.3.15.1 allows remote attackers to bypass access controls via a crafted action: prefix.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-4310",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.456Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The DiskFileItem class in Apache Commons FileUpload, as used in Red Hat JBoss BRMS 5.3.1; JBoss Portal 4.3 CP07, 5.2.2, and 6.0.0; and Red Hat JBoss Web Server 1.0.2 allows remote attackers to write to arbitrary files via a NULL byte in a file name in a serialized instance.",
+            "description": "The DiskFileItem class in Apache Commons FileUpload, as used in Red Hat JBossBRMS 5.3.1; JBoss Portal 4.3 CP07, 5.2.2, and 6.0.0; and Red Hat JBoss Web Server 1.0.2 allows remote attackers to write to arbitrary files via a NULL byte in a file name in a serialized instance.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2186",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-08-21T00:00:00.963Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "HPE Operations Orchestration 10.x before 10.51 and Operations Orchestration content before 1.7.0 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "HPE Operations Orchestration 10.x before 10.51 and Operations Orchestration content before 1.7.0 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1997",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.704Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Code Injection",
+            "description": "> Affected versions of the package are vulnerable to Code Injection.> > -- [snyk.io](https://snyk.io/vuln/SNYK-JAVA-ORGAPACHESTRUTS-30768)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-05-16T00:00:00.083Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.0.0 through 2.3.15.1 enables Dynamic Method Invocation by default, which has unknown impact and attack vectors.",
+            "description": "Apache Struts 2.0.0 through 2.3.15.1 enables Dynamic Method Invocation by default, which has unknown impact and attack vectors.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-4316",
+                    "cwe": [
+                        "CWE-16"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.471Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary File Write",
+            "description": "Arbitrary File Write",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2186",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:P",
+                    "cvss_v3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.088Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2",
+                    "fixed_versions": [
+                        "[1.3.1,2)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Execution",
+            "description": "Arbitrary Code Execution",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2015-7501",
+                    "cwe": [
+                        "CWE-502"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/Au:N/C:C/I:C/A:C",
+                    "cvss_v3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.677Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2",
+                    "fixed_versions": [
+                        "[3.2.2,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-4316]  null, Improper Access Control",
+            "description": "Apache Struts 2.0.0 through 2.3.15.1 enables Dynamic Method Invocation by default, which has unknown impact and attack vectors.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-4316",
+                    "cvss_v2": "10.0"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.482Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "HPE P9000 Command View Advanced Edition Software (CVAE) 7.x and 8.x before 8.4.0-00 and XP7 CVAE 7.x and 8.x before 8.4.0-00 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "HPE P9000 Command View Advanced Edition Software (CVAE) 7.x and 8.x before 8.4.0-00 andXP7 CVAE 7.x and 8.x before 8.4.0-00 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-2003",
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.505Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Time of Check Time of Use (TOCTOU)",
+            "description": "Time of Check Time of Use (TOCTOU)",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-0248",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:L/AC:L/AU:N/C:N/I:P/A:P",
+                    "cvss_v3": "4.4/CVSS:3.0/AV:L/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.086Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2",
+                    "fixed_versions": [
+                        "[1.3,2)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Cross-site Scripting (XSS) in org.apache.struts:struts2-core (Maven) with low severity",
+            "description": "> Affected versions of the package are vulnerable to Cross-site Scripting (XSS) when debug mode is switched on or JSPs are exposed in production environment.> >-- [snyk.io](https://snyk.io/vuln/SNYK-JAVA-ORGAPACHESTRUTS-30769)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-06-15T00:00:00.075Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2 before 2.3.29 and 2.5.x before 2.5.1 allow attackers to have unspecified impact via vectors related to improper action name clean up.",
+            "description": "Apache Struts 2 before 2.3.29 and 2.5.x before 2.5.1 allow attackers to have unspecified impact via vectors related to improper action name clean up.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4436",
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.549Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "In Apache Struts 2.3.7 through 2.3.33 and 2.5 through 2.5.12, if an application allows entering a URL in a form field and built-in URLValidator is used, it is possible to prepare a special URL which will be used to overload server process when performing validation of the URL.  NOTE: this vulnerability exists because of an incomplete fix for S2-047 / CVE-2017-7672.",
+            "description": "In Apache Struts 2.3.7 through 2.3.33 and 2.5 through 2.5.12, if an application allows entering a URL in a form field and built-in URLValidator is used, it is possible to prepare a special URL which will be used to overload server process when performing validation of the URL.NOTE: this vulnerability exists because of an incomplete fix for S2-047 / CVE-2017-7672.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-9804",
+                    "cwe": [
+                        "CWE-399"
+                    ],
+                    "cvss_v2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+                }
+            ],
+            "created": "2017-10-17T00:00:00.307Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.34]",
+                        "[2.5.13]"
+                    ]
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.34]",
+                        "[2.5.13]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Injection",
+            "description": "Arbitrary Code Injection",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-1966",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:C/I:C/A:C",
+                    "cvss_v3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.745Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.14.2,2.3.15)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-2248]  Improper Input Validation",
+            "description": "Multiple open redirect vulnerabilities in Apache Struts 2.0.0 through 2.3.15 allow remote attackers to redirect users to arbitrary web sites and conduct phishing attacks via a URL in a parameter using the (1) redirect: or (2) redirectAction: prefix.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2248",
+                    "cvss_v2": "5.8"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.334Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "HPE Operations Manager 8.x and 9.0 on Windows allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "HPE Operations Manager 8.x and 9.0 on Windows allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1985",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.819Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Denial of Service (DoS)",
+            "description": "Denial of Service (DoS)",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0050",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:P",
+                    "cvss_v3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.096Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2",
+                    "fixed_versions": [
+                        "[1.3.1,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Remote command execution",
+            "description": "Remote command execution",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2251",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:C/I:C/A:C",
+                    "cvss_v3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.775Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.15.1,2.3.16)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "HPE iMC PLAT before 7.2 E0403P04, iMC EAD before 7.2 E0405P05, iMC APM before 7.2 E0401P04, iMC NTA before 7.2 E0401P01, iMC BIMS before 7.2 E0402P02, and iMC UAM_TAM before 7.2 E0405P05 allow remote attackersto execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "HPE iMCPLAT before 7.2 E0403P04, iMC EAD before 7.2 E0405P05, iMC APM before 7.2 E0401P04, iMC NTA before 7.2 E0401P01, iMC BIMS before 7.2 E0402P02, and iMC UAM_TAM before 7.2 E0405P05 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4372",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-19T00:00:00.078Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "The TextParseUtil.translateVariables method in Apache Struts 2.x before 2.3.20 allows remote attackers to execute arbitrary code via a crafted OGNL expression with ANTLR tooling.",
+            "description": "The TextParseUtil.translateVariables method in Apache Struts 2.x before 2.3.20 allowsremote attackers to execute arbitrary code via a crafted OGNL expression with ANTLR tooling.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3090",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "6.5/AV:N/AC:L/Au:S/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-24T00:00:00.018Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.24.1]"
+                    ]
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.24.1]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-2251]  Improper Input Validation",
+            "description": "Apache Struts 2.0.0 through 2.3.15 allows remote attackers to execute arbitrary OGNL expressions via a parameter with a crafted (1) action:, (2) redirect:, or (3) redirectAction: prefix.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2251",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.294Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-0785]  Improper Input Validation",
+            "description": "Apache Struts 2.x before 2.3.28 allows remote attackers to execute arbitrary code via a \"%{}\" sequence in a tag attribute, aka forced double OGNL evaluation.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-0785",
+                    "cvss_v2": "10.0"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.337Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Injection",
+            "description": "Arbitrary Code Injection",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2135",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:C/I:C/A:C",
+                    "cvss_v3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.764Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.14.3,2.3.15)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "ClassLoader manipulation via ParametersInterceptor",
+            "description": "ClassLoader manipulation via ParametersInterceptor",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0112",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:P",
+                    "cvss_v3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.795Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.16.2,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-2135]  Improper Control of Generation of Code (\"Code Injection\")",
+            "description": "Apache Struts 2 before 2.3.14.3 allows remote attackers to execute arbitrary OGNL code via a request with a crafted value that contains both \"${}\" and \"%{}\" sequences, which causes the OGNL code to be evaluated twice.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2135",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.225Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The Apache Commons Collections library contains various classes in the \"functor\" package which are serializable and use reflection. This can be exploited for remote code execution attacks by injecting specially crafted objects to applications that de-serialize java objects from untrusted sources and have the Apache Commons Collections library in their classpath and do not perform any kind of input validation.",
+            "description": "The Apache Commons Collections library contains various classes in the \"functor\" package which are serializable and use reflection. This can be exploited for remote code execution attacks by injecting specially crafted objects to applications that de-serialize java objects from untrusted sources and have the Apache Commons Collections library in their classpath and do not perform any kind of input validation.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-4852"
+                },
+                {
+                    "cve": "CVE-2015-7450"
+                },
+                {
+                    "cve": "CVE-2015-8103"
+                },
+                {
+                    "cve": "CVE-2015-7501"
+                },
+                {
+                    "cve": "CVE-2015-6420"
+                },
+                {
+                    "cve": "CVE-2015-8765"
+                },
+                {
+                    "cve": "CVE-2016-1985"
+                },
+                {
+                    "cve": "CVE-2016-1986"
+                },
+                {
+                    "cve": "CVE-2016-1997"
+                },
+                {
+                    "cve": "CVE-2016-1998"
+                },
+                {
+                    "cve": "CVE-2016-2000"
+                },
+                {
+                    "cve": "CVE-2016-2003"
+                },
+                {
+                    "cve": "CVE-2016-2009"
+                },
+                {
+                    "cve": "CVE-2016-1114"
+                },
+                {
+                    "cve": "CVE-2016-1999"
+                },
+                {
+                    "cve": "CVE-2016-4369"
+                },
+                {
+                    "cve": "CVE-2016-4368"
+                },
+                {
+                    "cve": "CVE-2016-4372"
+                },
+                {
+                    "cve": "CVE-2016-4373"
+                },
+                {
+                    "cve": "CVE-2016-4385"
+                },
+                {
+                    "cve": "CVE-2016-4398"
+                }
+            ],
+            "created": "2018-03-29T00:00:00.485Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2",
+                    "fixed_versions": [
+                        "[3.2.2]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Execution",
+            "description": "Arbitrary Code Execution",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1000031",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v3": "9.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.107Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-3081]  Improper Neutralization of Special Elements used in a Command (Command Injection)",
+            "description": "Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1, when Dynamic Method Invocation is enabled, allow remote attackers to execute arbitrary code via method: prefix, related to chained expressions.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3081",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.228Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-1966]  Improper Control of Generation of Code (\"Code Injection\")",
+            "description": "Apache Struts 2 before 2.3.14.1 allows remote attackers to execute arbitrary OGNL code via a crafted request that is not properly handled when using the includeParams attribute in the (1) URL or (2) A tag.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-1966",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.284Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-2162]  Improper Neutralization of Input During Web Page Generation (\"Cross-site Scripting\")",
+            "description": "Apache Struts 2.x before 2.3.25 does not sanitize text in the Locale object constructed by I18NInterceptor, which might allow remote attackers to conduct cross-site scripting (XSS) attacks via unspecified vectors involving language display.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-2162",
+                    "cvss_v2": "4.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.366Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Commons HttpClient 3.x, as used in Amazon Flexible Payments Service (FPS) merchant Java SDK andother products, does not verify that the server hostname matches a domain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.",
+            "description": "Apache Commons HttpClient 3.x, as used in Amazon Flexible Payments Service (FPS) merchant Java SDK and other products, does not verify that the server hostname matches adomain name in the subject's Common Name (CN) or subjectAltName field of the X.509 certificate, which allows man-in-the-middle attackers to spoof SSL servers via an arbitrary valid certificate.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2012-5783",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.624Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-httpclient-3.0.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://apache-httpclient:commons-httpclient:3.0.1"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.x before 2.3.24.1 allows remote attackers to manipulate Struts internals, alter user sessions, or affect container settings via vectors involving a top object.",
+            "description": "Apache Struts 2.x before 2.3.24.1 allows remote attackers to manipulate Struts internals, alter user sessions, or affect container settings via vectors involving a top object.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-5209",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "5.0/AV:N/AC:L/Au:N/C:N/I:P/A:N"
+                }
+            ],
+            "created": "2017-09-26T00:00:00.913Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.24.1]"
+                    ]
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.24.1]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Serialized-object interfaces in VMware vRealize Orchestrator 6.x, vCenter Orchestrator 5.x, vRealize Operations 6.x, vCenter Operations 5.x, and vCenter Application Discovery Manager (vADM) 7.x allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "Serialized-object interfaces in VMware vRealize Orchestrator 6.x, vCenter Orchestrator 5.x, vRealize Operations 6.x, vCenter Operations 5.x, and vCenter Application Discovery Manager (vADM) 7.x allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-6934",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.011Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Classloader manipulation via CookieInterceptor",
+            "description": "Classloader manipulation via CookieInterceptor",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0116",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:N/I:P/A:P",
+                    "cvss_v3": "5.4/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.817Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.16.3,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-3082]  Improper Input Validation",
+            "description": "XSLTResult in Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1 allows remote attackers to execute arbitrary code via the stylesheet location parameter.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3082",
+                    "cvss_v2": "10.0"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.216Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2014-0113]  Permissions, Privileges, and Access Controls",
+            "description": "CookieInterceptor in Apache Struts before 2.3.16.2, when a wildcard cookiesName value is used, does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0094.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0113",
+                    "cvss_v2": "7.5"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.271Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary file upload via deserialization",
+            "description": "> The DiskFileItem class in Apache Commons FileUpload, as used in Red Hat JBoss BRMS 5.3.1; JBoss Portal 4.3 CP07, 5.2.2, and 6.0.0; and Red Hat JBoss Web Server 1.0.2 allows remote attackers to write to arbitrary files via a NULL byte in a file name in a serialized instance.> > -- [redhat.com](https://access.redhat.com/security/cve/CVE-2013-2186)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-03-28T00:00:00.568Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2 before 2.3.14.3 allows remote attackers to execute arbitrary OGNL code via a request with a crafted value that contains both \"${}\" and \"%{}\" sequences, which causes the OGNL code to be evaluated twice.",
+            "description": "Apache Struts 2 before 2.3.14.3 allows remote attackers to execute arbitrary OGNL code via a request with a crafted value that contains both \"${}\" and \"%{}\" sequences, which causes the OGNL code to be evaluated twice.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2135",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "9.3/AV:N/AC:M/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.243Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Execution",
+            "description": "Arbitrary Code Execution",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2017-5638",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v3": "9.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.843Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.32,2.5)",
+                        "[2.5.10.1,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "MultipartStream.java in Apache Commons FileUpload before 1.3.1, as used in Apache Tomcat, JBoss Web, and other products, allows remote attackers to cause a denial of service (infinite loop and CPU consumption) via a crafted Content-Type header that bypasses a loop's intended exit conditions.",
+            "description": "MultipartStream.java in Apache Commons FileUpload before 1.3.1, as used in Apache Tomcat, JBoss Web, and other products, allows remote attackers to cause a denial of service (infinite loop and CPU consumption) via a crafted Content-Type header that bypasses a loop's intended exit conditions.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0050",
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.729Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2",
+                    "fixed_versions": [
+                        "[1.3.1]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "CookieInterceptor in Apache Struts before 2.3.16.2, when a wildcard cookiesName value is used, does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0094.",
+            "description": "CookieInterceptor in Apache Struts before 2.3.16.2, when a wildcard cookiesName value is used, does not properly restrict access to the getClassmethod, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0094.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0113",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.932Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "When using a Spring AOP functionality to secure Struts actions it is possible to perform a DoS attack. Solution is to upgrade to Apache Struts version 2.5.12 or 2.3.33.",
+            "description": "When using a Spring AOP functionality to secure Struts actions it is possible to perform a DoS attack. Solution is to upgrade to Apache Struts version 2.5.12 or 2.3.33.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-9787",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "4.0/AV:N/AC:L/Au:S/C:N/I:N/A:P"
+                }
+            ],
+            "created": "2017-08-16T00:00:00.038Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.33]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Serialized-object interfaces in certain IBM analytics, business solutions, cognitive, IT infrastructure, and mobile and social products allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the InvokerTransformer class in the Apache Commons Collections library.",
+            "description": "Serialized-object interfaces in certain IBM analytics, business solutions, cognitive, IT infrastructure, and mobile and social products allow remote attackers to executearbitrary commands via a crafted serialized Java object, related to the InvokerTransformer class in the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-7450",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.967Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "HPE Universal CMDB 10.0 through 10.21, Universal CMDB Configuration Manager 10.0 through 10.21, and Universal Discovery 10.0 through 10.21 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "HPE Universal CMDB 10.0 through 10.21, Universal CMDB Configuration Manager 10.0 through 10.21, and Universal Discovery 10.0 through 10.21 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4368",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-19T00:00:00.169Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Red Hat JBoss A-MQ 6.x; BPM Suite (BPMS) 6.x; BRMS 6.x and 5.x; Data Grid (JDG) 6.x; Data Virtualization (JDV) 6.x and 5.x; Enterprise Application Platform 6.x, 5.x, and 4.3.x; Fuse 6.x;Fuse Service Works (FSW) 6.x; Operations Network (JBoss ON) 3.x; Portal 6.x; SOA Platform (SOA-P) 5.x; Web Server (JWS) 3.x; Red Hat OpenShift/xPAAS3.x; and Red Hat Subscription Asset Manager 1.3 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "Red Hat JBoss A-MQ 6.x; BPM Suite (BPMS) 6.x; BRMS 6.x and 5.x; Data Grid (JDG) 6.x; Data Virtualization (JDV) 6.x and 5.x; Enterprise Application Platform 6.x, 5.x, and 4.3.x; Fuse 6.x; Fuse Service Works (FSW) 6.x; Operations Network (JBoss ON) 3.x; Portal 6.x; SOA Platform (SOA-P) 5.x; Web Server (JWS) 3.x; Red Hat OpenShift/xPAAS 3.x; and Red Hat Subscription Asset Manager 1.3allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-7501",
+                    "cwe": [
+                        "CWE-502"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-12-12T00:00:00.067Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Cross-siteScripting (XSS) in org.apache.struts:struts2-core (Maven) with medium severity",
+            "description": "> org.apache.struts:struts2-core When the Struts2 debug mode is turned on, under certain conditions an arbitrary script may be executed in the 'Problem Report' screen. Also if JSP files are exposed to be accessed directly it's possible to execute an arbitrary script.> > -- [snyk.io](https://snyk.io/vuln/SNYK-JAVA-ORGAPACHESTRUTS-30059)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-06-15T00:00:00.076Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Cross-site scripting (XSS) vulnerability in the URLDecoder function in JRE before 1.8, as used in Apache Struts 2.x before 2.3.28, when using a single byte page encoding, allows remote attackers to inject arbitrary web script or HTML via multi-byte characters in a url-encoded parameter.",
+            "description": "Cross-site scripting (XSS) vulnerability in the URLDecoder function in JRE before 1.8, as used in Apache Struts 2.x before 2.3.28, when using a single byte page encoding, allows remote attackers to inject arbitrary web script or HTML via multi-byte characters in a url-encoded parameter.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4003",
+                    "cwe": [
+                        "CWE-79"
+                    ],
+                    "cvss_v2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.482Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Injection",
+            "description": "Arbitrary Code Injection",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2134",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:C/I:C/A:C",
+                    "cvss_v3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.756Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.14.3,2.3.15)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "URL Redirection to Untrusted Site",
+            "description": "URL Redirection to Untrusted Site",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2248",
+                    "cwe": [
+                        "CWE-601"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:N",
+                    "cvss_v3": "5.4/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.766Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.15.1,2.3.16)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Manipulation of Struts' internals",
+            "description": "Manipulation of Struts' internals",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2015-5209",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v3": "9.1/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.841Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.24.1,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2017-5638]  Improper Input Validation",
+            "description": "The Jakarta Multipart parser in Apache Struts 2 2.3.x before 2.3.32 and 2.5.x before 2.5.10.1 mishandles file upload, which allows remote attackers to execute arbitrary commands via a #cmd= string in a crafted Content-Type HTTP header, as exploited in the wild in March 2017.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-5638",
+                    "cvss_v2": "10.0"
+                }
+            ],
+            "created": "2017-04-17T00:00:00.534Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.x before 2.3.29 allows remote attackers to execute arbitrary code via a \"%{}\" sequence in a tag attribute, aka forced double OGNL evaluation.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2016-0785.",
+            "description": "Apache Struts 2.x before 2.3.29 allows remote attackers to execute arbitrary code via a \"%{}\" sequence in a tag attribute, aka forced double OGNL evaluation.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2016-0785.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4461",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "9.0/AV:N/AC:L/Au:S/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-11-20T00:00:00.633Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.29]",
+                        "[2.5.1]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "ClassLoader manipulation via ParametersInterceptor",
+            "description": "ClassLoader manipulation via ParametersInterceptor",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0113",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:P",
+                    "cvss_v3": "7.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.809Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.16.2,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Bypass Access Controls",
+            "description": "Bypass Access Controls",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-4310",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:N",
+                    "cvss_v3": "5.4/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:N"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.777Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.15.3,2.3.16)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-2134]  Improper Control of Generation of Code (\"Code Injection\")",
+            "description": "Apache Struts 2 before 2.3.14.3 allows remote attackers to execute arbitrary OGNL code via a request with a crafted action name that is not properly handled during wildcard matching, a different vulnerability than CVE-2013-2135.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2134",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.236Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2014-0094] The ParametersInterceptor in Apache Struts before 2.3.16.1 allows remote attacke...",
+            "description": "The ParametersInterceptor in Apache Struts before 2.3.16.1 allows remote attackers to \"manipulate\" the ClassLoader via the class parameter, which is passed to the getClass method.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0094",
+                    "cvss_v2": "5.0"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.303Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2 before 2.3.14.2 allows remote attackers to execute arbitrary OGNL code via a crafted request that is not properly handled when using the includeParams attribute in the (1) URL or (2) A tag. NOTE: this issue is due to an incomplete fix for CVE-2013-1966.",
+            "description": "Apache Struts 2 before 2.3.14.2 allows remote attackers to execute arbitrary OGNL code via a crafted request that is not properly handled when using the includeParams attribute in the (1) URL or (2) A tag. NOTE: this issue is due to an incomplete fix for CVE-2013-1966.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2115",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "9.3/AV:N/AC:M/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.205Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.0.0 through 2.3.24.1 does not properly cache method references when used with OGNL before 3.0.12, which allows remote attackers to cause a denial of service (block access to a web site) via unspecified vectors.",
+            "description": "Apache Struts 2.0.0 through 2.3.24.1 does not properly cache method references when used with OGNL before 3.0.12, which allowsremote attackers to cause a denial of service (block access to a web site) via unspecified vectors.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3093",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "5.0/AV:N/AC:L/Au:N/C:N/I:N/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.449Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/ognl-3.0.6.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://ognl:ognl:3.0.6"
+                }
+            ]
+        },
+        {
+            "summary": "ClassLoader Manipulation via ParametersInterceptor",
+            "description": "ClassLoader Manipulation via ParametersInterceptor",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0094",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:N/I:P/A:N",
+                    "cvss_v3": "5.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.787Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.16.2,3)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2017-9791]  Improper Input Validation",
+            "description": "The Struts 1 plugin in Apache Struts 2.3.x might allow remote code execution via a malicious field value passed in a raw message to the ActionMessage.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-9791",
+                    "cvss_v2": "7.5"
+                }
+            ],
+            "created": "2017-07-29T00:00:00.262Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The RMI servicein HP Network Automation Software 9.1x, 9.2x, 10.0x before 10.00.02.01, and 10.1x before 10.11.00.01 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) and Commons BeanUtils libraries.",
+            "description": "The RMIservice in HP Network Automation Software 9.1x, 9.2x, 10.0x before 10.00.02.01, and 10.1x before 10.11.00.01 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) and Commons BeanUtils libraries.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4385",
+                    "cwe": [
+                        "CWE-502"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.329Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Code Injection",
+            "description": "Arbitrary Code Injection",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2115",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:C/I:C/A:C",
+                    "cvss_v3": "8.8/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.754Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.14.2,2.3.15)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Denial of Service (DoS)",
+            "description": "Denial of Service (DoS)",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2017-9793",
+                    "cwe": [
+                        "CWE-400"
+                    ],
+                    "cvss_v3": "5.9/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.959Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-2115]  Improper Control of Generation of Code (\"Code Injection\")",
+            "description": "Apache Struts 2 before 2.3.14.2 allows remote attackers to execute arbitrary OGNL code via a crafted request that is not properly handled when using the includeParams attribute in the (1) URL or (2) A tag. NOTE: this issue is due to an incomplete fix for CVE-2013-1966.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2115",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.313Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-4310]  Permissions, Privileges, and Access Controls",
+            "description": "Apache Struts 2.0.0 through 2.3.15.1 allows remote attackers to bypass access controls via a crafted action: prefix.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-4310",
+                    "cvss_v2": "5.8"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.526Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1, when Dynamic Method Invocation is enabled, allow remote attackers to execute arbitrary code via method: prefix, related to chained expressions.",
+            "description": "Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1, when Dynamic Method Invocation is enabled, allow remote attackers to execute arbitrary code via method: prefix, related to chained expressions.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3081",
+                    "cwe": [
+                        "CWE-77"
+                    ],
+                    "cvss_v2": "9.3/AV:N/AC:M/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.347Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "HPE Discovery and Dependency Mapping Inventory (DDMi) 9.30, 9.31, 9.32, 9.32 update 1, 9.32 update 2, and9.32 update 3 allows remote authenticated users to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "HPE Discovery and Dependency Mapping Inventory (DDMi) 9.30, 9.31, 9.32, 9.32 update 1, 9.32 update 2, and 9.32 update 3 allows remote authenticated users to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collectionslibrary.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4369",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "6.5/AV:N/AC:L/Au:S/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-19T00:00:00.124Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2014-7809]  Cross-Site Request Forgery (CSRF)",
+            "description": "Apache Struts 2.0.0 through 2.3.x before 2.3.20 uses predictable <s:token/> values,which allows remote attackers to bypass the CSRF protection mechanism.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-7809",
+                    "cvss_v2": "6.8"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.356Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The Jakarta Multipart parser in Apache Struts 2 2.3.x before 2.3.32 and 2.5.x before 2.5.10.1 mishandles file upload, which allows remote attackers to execute arbitrary commands via a #cmd= string in a crafted Content-Type HTTP header, as exploited in the wild in March 2017.",
+            "description": "The Jakarta Multipart parser in Apache Struts 2 2.3.x before 2.3.32 and 2.5.x before 2.5.10.1 mishandles file upload, which allows remote attackers to execute arbitrary commands via a #cmd= string in a crafted Content-Type HTTP header, as exploited in the wild in March 2017.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-5638",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.008Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.32]",
+                        "[2.5.10.1]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Manipulation of Struts' internals",
+            "description": "> ValueStack defines special top object which represents root of execution context. It can be used to manipulate Struts' internals or can be used to affect container's settings> > -- [apache.org](https://struts.apache.org/docs/s2-026.html)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-04-17T00:00:00.828Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Parameter Alteration",
+            "description": "> Affected versions of the package are vulnerable to Parameter Alteration. ValueStack defines special top object which represents root of execution context. It can be used to manipulate Struts' internals or can be used to affect container's settings> > -- [snyk.io](https://snyk.io/vuln/SNYK-JAVA-ORGAPACHESTRUTSXWORK-30798)",
+            "issue_type": "security",
+            "severity": "Unknown",
+            "provider": "JFrog",
+            "created": "2017-05-11T00:00:00.040Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.0.0through 2.3.15 allows remote attackers to execute arbitrary OGNL expressions via a parameter with a crafted (1) action:, (2) redirect:, or (3) redirectAction: prefix.",
+            "description": "Apache Struts 2.0.0 through 2.3.15 allows remote attackers to execute arbitrary OGNL expressions via a parameter with a crafted (1) action:, (2) redirect:, or (3) redirectAction: prefix.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2251",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "9.3/AV:N/AC:M/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.350Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.x before 2.3.28 allows remote attackers to execute arbitrary code via a \"%{}\" sequence in a tag attribute, aka forced double OGNL evaluation.",
+            "description": "Apache Struts 2.x before 2.3.28 allows remote attackers to execute arbitrary code via a \"%{}\" sequence in a tag attribute, aka forced double OGNL evaluation.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-0785",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.216Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "XSLTResult in Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1 allows remote attackers to execute arbitrary code via the stylesheet location parameter.",
+            "description": "XSLTResult in Apache Struts 2.x before 2.3.20.2, 2.3.24.x before 2.3.24.2, and 2.3.28.x before 2.3.28.1 allows remote attackers to execute arbitrary code via the stylesheet location parameter.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3082",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.363Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2017-9787]  Improper Access Control",
+            "description": "When using a Spring AOP functionality to secure Struts actions it is possible to performa DoS attack when user was properly authenticated. Solution is to upgrade to Apache Struts version 2.5.12 or 2.3.33.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-9787",
+                    "cvss_v2": "4.0"
+                }
+            ],
+            "created": "2017-07-29T00:00:00.250Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Arbitrary Command Execution",
+            "description": "Arbitrary Command Execution",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2017-9805",
+                    "cwe": [
+                        "CWE-20",
+                        "CWE-502"
+                    ],
+                    "cvss_v3": "8.1/CVSS:3.0/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.938Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Denial of Service (DoS)",
+            "description": "Denial of Service (DoS)",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3092",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:N/I:N/A:C",
+                    "cvss_v3": "7.5/CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.098Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2",
+                    "fixed_versions": [
+                        "[1.3.2,1.4)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-3093]  Improper Input Validation",
+            "description": "Apache Struts 2.0.0 through 2.3.24.1 does not properly cache method references when used with OGNL before 3.0.12, which allows remote attackers to cause a denial of service (block access to a web site) via unspecified vectors.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3093",
+                    "cvss_v2": "5.0"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.213Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar",
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/ognl-3.0.6.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                },
+                {
+                    "component_id": "gav://ognl:ognl:3.0.6"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Commons FileUpload before 1.3.3 DiskFileItem File Manipulation Remote Code Execution",
+            "description": "Apache Commons FileUpload before 1.3.3 DiskFileItem File Manipulation RemoteCode Execution",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1000031",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.248Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2",
+                    "fixed_versions": [
+                        "[1.3.3]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "In Apache Struts 2.0.1 through 2.3.33 and 2.5 through 2.5.10, using an unintentional expression in a Freemarkertag instead of string literals can lead to a RCE attack.",
+            "description": "In Apache Struts 2.0.1 through 2.3.33 and 2.5 through 2.5.10, using an unintentional expression in a Freemarker tag instead of string literals can lead to a RCE attack.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2017-12611",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-10-17T00:00:00.499Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.34]",
+                        "[2.5.12]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "HPE Asset Manager 9.40, 9.41, and 9.50 and Asset Manager CloudSystem Chargeback 9.40 allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "HPE Asset Manager 9.40, 9.41, and 9.50 and Asset Manager CloudSystem Chargeback 9.40allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-2000",
+                    "cwe": [
+                        "CWE-19"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.558Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "HPE Service Manager (SM) 9.3x before 9.35 P4 and 9.4x before 9.41.P2 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "HPE Service Manager (SM) 9.3x before 9.35 P4 and 9.4x before 9.41.P2 allows remoteattackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1998",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.653Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Cross-site Request Forgery (CSRF)",
+            "description": "Cross-site Request Forgery (CSRF)",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "Snyk Basic",
+            "cves": [
+                {
+                    "cve": "CVE-2014-7809",
+                    "cwe": [
+                        "CWE-352"
+                    ],
+                    "cvss_v2": "CVSS:2.0/AV:N/AC:L/AU:N/C:P/I:P/A:P",
+                    "cvss_v3": "6.3/CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:L/A:L"
+                }
+            ],
+            "created": "2018-01-31T00:00:00.819Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.20,)"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.x before 2.3.25 does not sanitize text in the Locale object constructed by I18NInterceptor, which might allow remote attackers to conduct cross-site scripting (XSS) attacks via unspecified vectors involving language display.",
+            "description": "Apache Struts 2.x before 2.3.25 does not sanitize text in the Locale object constructed by I18NInterceptor, which might allow remote attackers to conduct cross-site scripting (XSS) attacks via unspecifiedvectors involving language display.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-2162",
+                    "cwe": [
+                        "CWE-79"
+                    ],
+                    "cvss_v2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.296Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "The MultipartStream class in Apache Commons Fileupload before 1.3.2, as used in Apache Tomcat 7.x before 7.0.70, 8.x before 8.0.36, 8.5.x before 8.5.3, and 9.x before 9.0.0.M7 and other products, allows remote attackers to cause a denial of service (CPU consumption) via a long boundary string.",
+            "description": "The MultipartStream class in Apache Commons Fileupload before 1.3.2, as used in Apache Tomcat 7.x before 7.0.70, 8.x before 8.0.36, 8.5.x before 8.5.3, and 9.x before 9.0.0.M7 and other products, allows remote attackers to cause a denial of service (CPU consumption) via a long boundary string.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-3092",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "7.8/AV:N/AC:L/Au:N/C:N/I:N/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.429Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-fileupload-1.2.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-fileupload:commons-fileupload:1.2.2"
+                }
+            ]
+        },
+        {
+            "summary": "Intel McAfee ePolicy Orchestrator (ePO) 4.6.9 and earlier, 5.0.x, 5.1.x before 5.1.3 Hotfix 1106041, and 5.3.x before 5.3.1 Hotfix 1106041 allow remote attackers to execute arbitrary code via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "Intel McAfee ePolicy Orchestrator (ePO) 4.6.9 and earlier, 5.0.x, 5.1.x before 5.1.3 Hotfix 1106041, and 5.3.x before 5.3.1 Hotfix 1106041 allow remote attackers to execute arbitrary code via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-8765",
+                    "cwe": [
+                        "NVD-CWE-Other"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.910Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2016-4436] Apache Struts 2 before 2.3.29 and 2.5.x before 2.5.1 allow attackers to have uns...",
+            "description": "Apache Struts 2 before 2.3.29 and 2.5.x before 2.5.1 allow attackers to have unspecified impact via vectors related to improper action name clean up.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-4436",
+                    "cvss_v2": "7.5"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.495Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2.0.0 through 2.3.x before 2.3.20 uses predictable <s:token/> values, which allows remote attackers to bypass the CSRF protection mechanism.",
+            "description": "Apache Struts 2.0.0 through 2.3.x before 2.3.20 uses predictable <s:token/> values, which allows remote attackers to bypass the CSRF protection mechanism.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-7809",
+                    "cwe": [
+                        "CWE-352"
+                    ],
+                    "cvss_v2": "6.8/AV:N/AC:M/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.390Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Cross-site scripting (XSS) vulnerability in Apache Struts before 2.3.20.",
+            "description": "Cross-site scripting (XSS) vulnerability in Apache Struts before 2.3.20.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-5169",
+                    "cwe": [
+                        "CWE-79"
+                    ],
+                    "cvss_v2": "4.3/AV:N/AC:M/Au:N/C:N/I:P/A:N"
+                }
+            ],
+            "created": "2017-10-17T00:00:00.721Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.20]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Apache Wicket before 1.5.12, 6.x before 6.17.0, and 7.x before 7.0.0-M3 might allow remote attackers to obtain sensitive information via vectors involving identifiers for storing page markup for temporary user sessions.",
+            "description": "Apache Wicket before 1.5.12, 6.x before 6.17.0, and 7.x before 7.0.0-M3 might allow remote attackers to obtain sensitive information via vectors involving identifiers for storing page markup for temporary user sessions.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-3526",
+                    "cwe": [
+                        "CWE-200"
+                    ],
+                    "cvss_v2": "5.0/AV:N/AC:L/Au:N/C:P/I:N/A:N"
+                }
+            ],
+            "created": "2017-12-12T00:00:00.120Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/wicket-1.3.7.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.wicket:wicket:1.3.7",
+                    "fixed_versions": [
+                        "[7.0.0-M3]",
+                        "[6.17.0]",
+                        "[1.5.12]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2 before 2.3.14.3 allows remoteattackers to execute arbitrary OGNL code via a request with a crafted action name that is not properly handled during wildcard matching, a differentvulnerability than CVE-2013-2135.",
+            "description": "Apache Struts 2 before 2.3.14.3 allows remote attackers to execute arbitrary OGNL code via a request with a crafted action name that is not properly handled during wildcard matching, a different vulnerability than CVE-2013-2135.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2134",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "9.3/AV:N/AC:M/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.224Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14",
+                    "fixed_versions": [
+                        "[2.3.14.3]"
+                    ]
+                }
+            ]
+        },
+        {
+            "summary": "HPE Network Node Manager i (NNMi) 9.20, 9.23, 9.24, 9.25, 10.00, and 10.01 allows remote authenticated users to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "HPE Network Node Manager i (NNMi) 9.20, 9.23, 9.24, 9.25, 10.00, and 10.01 allows remote authenticated users to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-2009",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "6.5/AV:N/AC:L/Au:S/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.451Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "The server in HP Release Control 9.13, 9.20, and 9.21 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "The server in HP Release Control 9.13, 9.20, and 9.21 allows remoteattackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1999",
+                    "cwe": [
+                        "CWE-284"
+                    ],
+                    "cvss_v2": "10.0/AV:N/AC:L/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.604Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "CookieInterceptor in Apache Struts 2.x before 2.3.16.3, when a wildcard cookiesName value is used, does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and modify session state via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0113.",
+            "description": "CookieInterceptor in Apache Struts 2.x before 2.3.16.3, when a wildcard cookiesName value is used, does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and modify session state via a craftedrequest.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0113.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0116",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "5.8/AV:N/AC:M/Au:N/C:N/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.966Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Serialized-object interfaces in certain Cisco Collaboration and Social Media; Endpoint Clients and Client Software; Network Application, Service, and Acceleration; Network and Content Security Devices; Network Management and Provisioning; Routing and Switching - Enterprise and Service Provider; Unified Computing; Voice and Unified Communications Devices; Video, Streaming, TelePresence, and Transcoding Devices; Wireless; and Cisco Hosted Services products allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "description": "Serialized-object interfaces in certain Cisco Collaboration and Social Media; Endpoint Clients and Client Software; Network Application, Service, and Acceleration; Network and Content Security Devices;Network Management and Provisioning; Routing and Switching - Enterprise and Service Provider; Unified Computing; Voice and Unified Communications Devices; Video, Streaming, TelePresence, and Transcoding Devices; Wireless; and Cisco Hosted Services products allow remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections (ACC) library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2015-6420",
+                    "cwe": [
+                        "NVD-CWE-Other"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.850Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "Adobe ColdFusion 10 before Update 19, 11 before Update 8, and 2016 before Update 1 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "description": "Adobe ColdFusion 10 before Update 19, 11 before Update 8, and 2016 before Update 1 allows remote attackers to execute arbitrary commands via a crafted serialized Java object, related to the Apache Commons Collections library.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2016-1114",
+                    "cwe": [
+                        "NVD-CWE-Other"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-11-17T00:00:00.864Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/commons-collections-3.2.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://commons-collections:commons-collections:3.2"
+                }
+            ]
+        },
+        {
+            "summary": "[CVE-2013-1965]  Improper Control of Generation of Code (\"Code Injection\")",
+            "description": "Apache Struts Showcase App 2.0.0 through 2.3.13, as used in Struts 2 before 2.3.14.1, allows remote attackers to execute arbitrary OGNL code via a crafted parameter name that is not properly handled when invoking a redirect.",
+            "issue_type": "security",
+            "severity": "Critical",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-1965",
+                    "cvss_v2": "9.3"
+                }
+            ],
+            "created": "2017-02-21T00:00:00.274Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Apache Struts 2 before 2.3.14.1 allows remote attackers to execute arbitrary OGNL code via a crafted request that is not properly handled when using the includeParams attribute in the (1) URL or (2) A tag.",
+            "description": "Apache Struts 2 before 2.3.14.1 allows remote attackers to execute arbitrary OGNL code via a crafted request that is not properly handled when using the includeParams attribute in the (1) URL or (2) A tag.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-1966",
+                    "cwe": [
+                        "CWE-94"
+                    ],
+                    "cvss_v2": "9.3/AV:N/AC:M/Au:N/C:C/I:C/A:C"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.133Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "Multiple open redirect vulnerabilities in Apache Struts 2.0.0 through 2.3.15 allow remote attackers to redirect users to arbitrary web sites and conduct phishing attacks via a URL in a parameter using the (1) redirect: or (2) redirectAction: prefix.",
+            "description": "Multiple open redirect vulnerabilities in Apache Struts 2.0.0 through 2.3.15 allow remote attackers to redirect users to arbitrary web sites andconduct phishing attacks via a URL in a parameter using the (1) redirect: or (2) redirectAction: prefix.",
+            "issue_type": "security",
+            "severity": "Minor",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2013-2248",
+                    "cwe": [
+                        "CWE-20"
+                    ],
+                    "cvss_v2": "5.8/AV:N/AC:M/Au:N/C:P/I:P/A:N"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.333Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/struts2-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts:struts2-core:2.3.14"
+                }
+            ]
+        },
+        {
+            "summary": "ParametersInterceptor in Apache Struts before 2.3.16.2 does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and execute arbitrary code via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0094.",
+            "description": "ParametersInterceptor in Apache Struts before 2.3.16.2 does not properly restrict access to the getClass method, which allows remote attackers to \"manipulate\" the ClassLoader and executearbitrary code via a crafted request.  NOTE: this vulnerability exists because of an incomplete fix for CVE-2014-0094.",
+            "issue_type": "security",
+            "severity": "Major",
+            "provider": "JFrog",
+            "cves": [
+                {
+                    "cve": "CVE-2014-0112",
+                    "cwe": [
+                        "CWE-264"
+                    ],
+                    "cvss_v2": "7.5/AV:N/AC:L/Au:N/C:P/I:P/A:P"
+                }
+            ],
+            "created": "2017-07-05T00:00:00.916Z",
+            "impact_path": [
+                "artifactory-ha/builds/atomisthq-step1-create-application-war-file/webservice-1.1.2.war/WEB-INF/lib/xwork-core-2.3.14.jar"
+            ],
+            "components": [
+                {
+                    "component_id": "gav://org.apache.struts.xwork:xwork-core:2.3.14"
+                }
+            ]
+        }
+    ],
+    "licenses": [
+        {
+            "name": "Unknown",
+            "full_name": "Unknown license",
+            "components": [
+                "gav://org.slf4j:slf4j-api:1.4.2",
+                "gav://javassist:javassist:3.11.0.GA",
+                "build://atomisthq-step1-create-application-war-file:105",
+                "generic://sha256:71ee613316e4bfc4770996dd6b0155c720778ba45e7c9842e4c1c6988a757891/services-1.1.2.jar",
+                "generic://sha256:92e45b9032ebe3d69dc038bbbb0e17e6e57d9d54eb37b3b62189048174439c14/shared-1.1.2.jar",
+                "generic://sha256:c4c8c472fd1a98c72ee171d8816251539f8efb8cbacd4aadb7678aa155b713c6/api-1.1.2.jar",
+                "generic://sha256:dc91c73c5a944335e16eb0744e3dc015987bd8cf809837b53d182b1201632fd5/webservice-1.1.2.war"
+            ]
+        },
+        {
+            "name": "BSD",
+            "full_name": "Berkeley Software Distribution (BSD)",
+            "more_info_url": [
+                "http://directory.fsf.org/wiki/License:BSD_4Clause",
+                "http://www.opensource.org/licenses/bsd-license.php",
+                "https://spdx.org/licenses/BSD-4-Clause",
+                "https://spdx.org/licenses/BSD-4-Clause.html"
+            ],
+            "components": [
+                "gav://asm:asm-tree:3.3",
+                "gav://asm:asm:3.3",
+                "gav://asm:asm-commons:3.3",
+                "gav://org.hamcrest:hamcrest-core:1.3",
+                "gav://org.freemarker:freemarker:2.3.19"
+            ]
+        },
+        {
+            "name": "Apache-2.0",
+            "full_name": "The Apache Software License, Version 2.0",
+            "more_info_url": [
+                "http://www.opensource.org/licenses/Apache-2.0",
+                "http://www.opensource.org/licenses/apache2.0.php",
+                "https://spdx.org/licenses/Apache-2.0",
+                "https://spdx.org/licenses/Apache-2.0.html",
+                "http://www.apache.org/licenses/LICENSE-2.0"
+            ],
+            "components": [
+                "gav://org.apache.commons:commons-lang3:3.1",
+                "gav://commons-io:commons-io:2.0.1",
+                "gav://ognl:ognl:3.0.6",
+                "gav://org.apache.struts:struts2-core:2.3.14",
+                "gav://commons-logging:commons-logging:1.0.3",
+                "gav://commons-collections:commons-collections:3.2",
+                "gav://org.apache.wicket:wicket:1.3.7",
+                "gav://commons-httpclient:commons-httpclient:3.0",
+                "gav://org.apache.struts.xwork:xwork-core:2.3.14",
+                "gav://commons-fileupload:commons-fileupload:1.2.2",
+                "gav://commons-lang:commons-lang:2.4"
+            ]
+        },
+        {
+            "name": "CPAL-1.0",
+            "full_name": "Common Public Attribution License Version 1.0 (CPAL)",
+            "more_info_url": [
+                "http://www.opensource.org/licenses/cpal_1.0",
+                "https://spdx.org/licenses/CPAL-1.0",
+                "https://spdx.org/licenses/CPAL-1.0.html",
+                "http://www.opensource.org/licenses/CPAL-1.0"
+            ],
+            "components": [
+                "gav://junit:junit:4.11"
+            ]
+        },
+        {
+            "name": "Apache-1.1",
+            "full_name": "The Apache Software License, Version 1.1",
+            "more_info_url": [
+                "http://apache.org/licenses/LICENSE-1.1",
+                "https://spdx.org/licenses/Apache-1.1",
+                "https://spdx.org/licenses/Apache-1.1.html",
+                "http://opensource.org/licenses/Apache-1.1"
+            ],
+            "components": [
+                "gav://commons-logging:commons-logging:1.0.3",
+                "gav://commons-codec:commons-codec:1.2"
+            ]
+        }
+    ]
+}

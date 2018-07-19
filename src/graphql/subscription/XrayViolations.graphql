@@ -1,0 +1,35 @@
+subscription XrayViolations {
+  XrayViolation {
+    watch_name
+    top_severity
+    created
+    id
+    issues {
+      severity
+      type
+      cve
+      provider
+      created
+      summary
+      description
+      impacted_artifacts {
+        pkg_type
+        path
+        sha256
+        name
+        sha1
+        parent_sha
+        depth
+        display_name
+        infected_files {
+          name
+          path
+          sha256
+          depth
+          parent_sha
+          display_name
+        }
+      }
+    }
+  }
+}

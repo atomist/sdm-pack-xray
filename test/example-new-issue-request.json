@@ -1,0 +1,18 @@
+{
+    "type" : "security",
+    "source_id" : "X-Atomist-123",
+    "url" : "https://atomist.com/security/issues/123",
+    "created" : "2018-05-14T13:24:12.123Z",
+    "description" : "The thing has big holes",
+    "provider" : "Atomist Inc",
+    "severity": "critical",
+    "summary": "Big holes",
+    "updated": "2018-05-14T13:24:12.123Z",
+    "modified": "2018-05-14T13:24:12.123Z",
+    "components" :
+        [
+            {
+                "component_id" : "gav://commons-fileupload:commons-fileupload:1.2.2"
+            }
+        ]
+}

@@ -1,0 +1,60 @@
+type XrayViolation @rootType {
+    watch_name: String
+    top_severity: XrayIssueSeverity
+    created: String
+    issues: [XrayIssue]
+}
+
+type XrayIssue {
+    severity: XrayIssueSeverity
+    type: XrayIssueType
+    provider: XrayIssueProvider
+    created: String
+    summary: String
+    description: String
+    cve: String
+    impacted_artifacts: [XrayArtifact]
+}
+
+type XrayArtifact {
+    pck_type: XrayPackageType
+    path: String
+    sha256: String
+    name: String
+    sha1: String
+    parent_sha: String,
+    depth: Int
+    display_name: String
+    infected_files: [XrayInfectedFile]
+}
+
+type XrayInfectedFile {
+    name: String
+    path: String
+    sha256: String
+    depth: Int
+    parent_sha: String
+    display_name: String
+    pkg_type: XrayPackageType
+}
+
+enum XrayIssueSeverity {
+    Major
+    Minor
+    Unknown
+}
+
+enum XrayPackageType {
+    Maven
+    Build
+}
+
+enum XrayIssueType {
+    Security
+}
+
+enum XrayIssueProvider {
+    Snyk
+    JFrog
+    Atomist
+}

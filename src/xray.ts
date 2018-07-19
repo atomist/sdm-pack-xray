@@ -21,18 +21,9 @@ import {
 } from "@atomist/sdm";
 import { metadata } from "@atomist/sdm/api-helper/misc/extensionPack";
 
-/**
- * Register support for XRay violations.
- * Note: If a goal gets passed to this function, this pack will
- * register a goal implementation for the given goal.
- * @param {Goal} goal
- * @returns {ExtensionPack}
- */
-export function xraySupport(goal?: Goal): ExtensionPack {
-    return {
-        ...metadata(),
-        configure: sdm => {
-
-        },
-    };
-}
+export const XraySupport: ExtensionPack = {
+    ...metadata(),
+    configure: sdm => {
+        // do something
+    },
+};
