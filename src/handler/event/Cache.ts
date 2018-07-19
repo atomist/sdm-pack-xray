@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 const cache: string[] = [];
 
 export function isNew(buildId: string): boolean {

@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import { Configuration } from "@atomist/automation-client";
 import { SoftwareDeliveryMachine } from "@atomist/sdm";
 import {
