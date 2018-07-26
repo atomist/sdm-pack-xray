@@ -25,6 +25,7 @@ import {
     UnIgnoreViolationForProject,
 } from "./handler/command/BlockDownloads";
 import { CreateNewXrayIssue } from "./handler/command/CreateNewIssue";
+import { RaisePullRequestOnBuildViolation } from "./handler/event/RaisePullRequestOnBuildViolation";
 
 export const XraySupport: ExtensionPack = {
     ...metadata(),
@@ -34,5 +35,6 @@ export const XraySupport: ExtensionPack = {
         sdm.addCommand(IgnoreViolationForProject);
         sdm.addCommand(UnIgnoreViolationForProject);
         sdm.addCommand(CreateNewXrayIssue);
+        sdm.addEvent(RaisePullRequestOnBuildViolation);
     },
 };

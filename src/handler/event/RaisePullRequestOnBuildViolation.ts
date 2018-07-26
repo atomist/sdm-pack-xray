@@ -56,16 +56,22 @@ import { GitCommandGitProject } from "@atomist/automation-client/project/git/Git
 import * as _ from "lodash/";
 import * as uuid from "uuid";
 
+import { OnEvent } from "@atomist/automation-client/onEvent";
+import { NoParameters } from "@atomist/automation-client/SmartParameters";
+import { EventHandlerRegistration } from "@atomist/sdm";
 import { defaultMessage } from "../command/BlockDownloads";
 
-@EventHandler("Raise a PR when there are fixable violations",
-    GraphQL.subscription({ name: "XrayViolations" }))
-export class RaisePullRequestOnBuildViolation implements HandleEvent<XrayViolations.Subscription> {
+export const RaisePullRequestOnBuildViolation: EventHandlerRegistration<any> = {
+    name: "RaisePullRequestOnBuildViolation",
+    description: "Raise a PR when there are fixable violations",
+    subscription: GraphQL.subscription("XrayViolations"),
+    tags: ["xray", "PR", "security", "jfrog"],
+    listener: handleViolation(),
+};
 
-    @Secret(Secrets.OrgToken)
-    public githubToken: string;
+function handleViolation(): OnEvent<XrayViolations.Subscription, NoParameters> {
+    return async (e: EventFired<XrayViolations.Subscription>, ctx: HandlerContext) => {
 
-    public async handle(e: EventFired<XrayViolations.Subscription>, ctx: HandlerContext): Promise<HandlerResult> {
         const violation = latestBuildsOnly(e.data.XrayViolation[0]);
 
         // buildId is the same for each issue when triggered by a build...
@@ -142,7 +148,7 @@ export class RaisePullRequestOnBuildViolation implements HandleEvent<XrayViolati
         }
         logger.info("Could not find a commit %j", sha);
         return SuccessPromise;
-    }
+    };
 }
 
 export function updateGradleDependencies(project: Project, files: BuildFile[]) {
