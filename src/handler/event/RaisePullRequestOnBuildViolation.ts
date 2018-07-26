@@ -56,7 +56,7 @@ import { GitCommandGitProject } from "@atomist/automation-client/project/git/Git
 import * as _ from "lodash/";
 import * as uuid from "uuid";
 
-import { BlockArtifactoryDownload } from "../command/BlockDownloads";
+import { defaultMessage } from "../command/BlockDownloads";
 
 @EventHandler("Raise a PR when there are fixable violations",
     GraphQL.subscription({ name: "XrayViolations" }))
@@ -400,14 +400,12 @@ export async function handleAtomistIssue(
         }
     }));
 
-    // const fixed = _.filter(toReport, r => r);
-
     if (toReport.length > 0) {
         await toReport.map(impact => {
             const cid = impact.impacted[0].infected_files[0].display_name;
-            const msg = BlockArtifactoryDownload.defaultMessage(cid, issue.summary, issue.description);
-            // tslint:disable-next-line:max-line-length
-            return ctx.messageClient.addressChannels(msg, impact.repo.channels[0].channelId, { id: issue.summary });
+            const msg = defaultMessage({ componentId: cid, issueId: issue.summary, issueDescription: issue.description });
+            return ctx.messageClient.addressChannels(
+                msg, impact.repo.channels[0].channelId, { id: issue.summary });
         });
     }
     return SuccessPromise;

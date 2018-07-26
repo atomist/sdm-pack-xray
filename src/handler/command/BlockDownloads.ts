@@ -15,15 +15,9 @@
  */
 
 import {
-    CommandHandler,
     FailurePromise,
-    HandleCommand,
-    HandlerContext,
-    HandlerResult,
     logger,
-    Parameter,
     SuccessPromise,
-    Tags,
 } from "@atomist/automation-client";
 
 import {
@@ -34,160 +28,33 @@ import * as slack from "@atomist/slack-messages/SlackMessages";
 
 import axios from "axios";
 
+import { CommandHandlerRegistration, CommandListenerInvocation } from "@atomist/sdm";
 import * as stringify from "json-stringify-safe";
-import { IgnoreViolationForProject } from "./IgnoreViolation";
-import { UnblockArtifactoryDownload } from "./UnblockDownloads";
-import { UnIgnoreViolationForProject } from "./UnIgnoreViolation";
+import _ = require("lodash");
 
-@CommandHandler("Block downloads of a component from Artifactory")
-@Tags("artifactory", "security", "artifacts", "jfrog")
-export class BlockArtifactoryDownload implements HandleCommand {
-
-    public static defaultMessage(
-        componentId: string,
-        issueId: string,
-        issueDescription: string,
-    ): slack.SlackMessage {
-        const blockCmd = new BlockArtifactoryDownload();
-        blockCmd.componentId = componentId;
-        blockCmd.issueDescription = issueDescription;
-        blockCmd.issueId = issueId;
-
-        const ignoreCmd = new IgnoreViolationForProject();
-        ignoreCmd.componentId = componentId;
-        ignoreCmd.issueDescription = issueDescription;
-        ignoreCmd.issueId = issueId;
-
-        const actions = [
-            buttonForCommand({
-                text: "Block all downloads",
-            }, blockCmd),
-            buttonForCommand({
-                text: "Ignore for this project",
-            }, ignoreCmd),
-        ];
-        return this.generateMessage(
-            componentId,
-            issueId,
-            issueDescription,
-            "What can I do for you now, Dave?",
-            actions);
-    }
-
-    public static ignoreMessage(
-        componentId: string,
-        issueId: string,
-        issueDescription: string,
-    ): slack.SlackMessage {
-        const enableCmd = new UnIgnoreViolationForProject();
-        enableCmd.componentId = componentId;
-        enableCmd.issueDescription = issueDescription;
-        enableCmd.issueId = issueId;
-
-        const actions = [
-            buttonForCommand(
-                { text: "Re-enable" },
-                enableCmd,
-            ),
-        ];
-        return this.generateMessage(
-            componentId,
-            issueId,
-            issueDescription,
-            "Notifications about this issue will be ignored for this project",
-            actions);
-    }
-    public static blockedMessage(
-        componentId: string,
-        issueId: string,
-        issueDescription: string,
-    ): slack.SlackMessage {
-
-        const unblockCmd = new UnblockArtifactoryDownload();
-        unblockCmd.issueId = issueId;
-        unblockCmd.issueDescription = issueDescription;
-        unblockCmd.componentId = componentId;
-        const actions = [
-            buttonForCommand(
-                { text: "Unblock downloads" },
-                unblockCmd,
-            ),
-        ];
-        return this.generateMessage(
-            componentId,
-            issueId,
-            issueDescription,
-            "Downloads from Artifactory have been blocked",
-            actions);
-    }
-
-    private static generateMessage(
-        componentId: string,
-        issueId: string,
-        issueDescription: string,
-        attachmentText: string,
-        actions?: slack.Action[]): slack.SlackMessage {
-
-        const text = `*${issueId}*: ${issueDescription}:\n*${componentId}*`;
-
-        return {
-            text: "*Incoming Xray Security Issue*",
-            attachments: [
-                {
-                    text,
-                    color: "warning",
-                    fallback: "Security Issue",
-                    mrkdwn_in: ["text"],
-                },
-                {
-                    text: "There is no known fix for this issue",
-                    color: "danger",
-                    fallback: "Security Issue",
-                    mrkdwn_in: ["text"],
-                },
-                {
-                    text: attachmentText,
-                    fallback: attachmentText,
-                    mrkdwn_in: ["text"],
-                    color: "good",
-                    actions,
-                },
-            ],
-        };
-    }
-
-    @Parameter({
-        displayName: "Component Identifier",
-        pattern: /^.*$/,
-        description: "the unique identifier of the component",
+export const BlockDownloadParams = {
+    issueDescription: { required: true, displayable: false, description: "the description of the issue" },
+    issueId: { required: true, displayable: false, description: "the unique identifier of the issue" },
+    componentId: {
+        required: true, maxLength: 100, minLength: 8,
         validInput: "group:artifact:version",
-        minLength: 8,
-        maxLength: 100,
-        required: true,
-        displayable: true,
-    })
-    public componentId: string;
+        description: "the unique identifier of the component",
+        displayName: "Component Identifier",
+    },
+};
 
-    @Parameter({
-        pattern: /^.*$/,
-        description: "the unique identifier of the issue",
-        required: true,
-        displayable: false,
-    })
-    public issueId: string;
+export const BlockDownloadTags = ["artifactory", "security", "artifacts", "jfrog"];
 
-    @Parameter({
-        pattern: /^.*$/,
-        description: "the description of the issue",
-        required: true,
-        displayable: false,
-    })
-    public issueDescription: string;
-
-    public async handle(ctx: HandlerContext): Promise<HandlerResult> {
+export const BlockArtifactoryDownload: CommandHandlerRegistration<any> = {
+    name: "BlockArtifactoryDownload",
+    description: "Block downloads of a component from Artifactory",
+    tags: BlockDownloadTags,
+    parameters: BlockDownloadParams,
+    listener: async (cli: CommandListenerInvocation<any>): Promise<any> => {
+        const params = cli.parameters;
         const config = await getRepoConfig();
         if (config) {
-            const pattern = this.componentId.split(":").join("/") + "/**";
+            const pattern = params.componentId.split(":").join("/") + "/**";
 
             if (!config.excludesPattern || config.excludesPattern === "") {
                 config.excludesPattern = pattern;
@@ -196,17 +63,147 @@ export class BlockArtifactoryDownload implements HandleCommand {
             }
 
             await setRepoConfig(config);
-            await ctx.messageClient.respond(
-                BlockArtifactoryDownload.blockedMessage(
-                    this.componentId,
-                    this.issueId,
-                    this.issueDescription),
-                { id: this.issueId });
+            await cli.context.messageClient.respond(
+                blockedMessage(params),
+                { id: params.issueId });
             return SuccessPromise;
         } else {
             return FailurePromise;
         }
-    }
+    },
+};
+export const UnblockArtifactoryDownload: CommandHandlerRegistration<any> = {
+    name: "UnblockArtifactoryDownload",
+    tags: BlockDownloadTags,
+    description: "Unblock downloads of a component from Artifactory",
+    parameters: BlockDownloadParams,
+    listener: async (cli: CommandListenerInvocation<any>): Promise<any> => {
+        const config = await getRepoConfig();
+        const params = cli.parameters;
+        if (config) {
+            const pattern = params.componentId.split(":").join("/") + "/**";
+
+            if (config.excludesPattern && config.excludesPattern !== "") {
+                const exclusions = config.excludesPattern.split(",");
+                _.remove(exclusions, ex => ex === pattern);
+                config.excludesPattern = exclusions;
+            }
+
+            await setRepoConfig(config);
+            await cli.context.messageClient.respond(
+                defaultMessage(params),
+                { id: params.issueId });
+            return SuccessPromise;
+        } else {
+            return FailurePromise;
+        }
+    },
+};
+
+export const IgnoreViolationForProject: CommandHandlerRegistration<any> = {
+    name: "IgnoreViolationForProject",
+    description: "Ignore a given violation in a given project",
+    tags: BlockDownloadTags,
+    parameters: BlockDownloadParams,
+    listener: async (cli: CommandListenerInvocation<any>): Promise<any> => {
+        const params = cli.parameters;
+        await cli.context.messageClient.respond(
+            ignoreMessage(params),
+            { id: params.issueId });
+        return SuccessPromise;
+    },
+};
+
+export const UnIgnoreViolationForProject: CommandHandlerRegistration<any> = {
+    name: "UnIgnoreViolationForProject",
+    description: "Re-enable notifications for a given violation in a given project",
+    tags: BlockDownloadTags,
+    parameters: BlockDownloadParams,
+    listener: async (cli: CommandListenerInvocation<any>): Promise<any> => {
+        const params = cli.parameters;
+        await cli.context.messageClient.respond(
+            defaultMessage(params),
+            { id: params.issueId });
+        return SuccessPromise;
+    },
+};
+
+function blockedMessage(params: any): slack.SlackMessage {
+    return generateMessage(
+        params,
+        "Downloads from Artifactory have been blocked",
+        [
+            buttonForCommand(
+                { text: "Unblock downloads" },
+                UnblockArtifactoryDownload.name,
+                params,
+            ),
+        ]);
+}
+
+function generateMessage(
+    params: any,
+    attachmentText: string,
+    actions?: slack.Action[]): slack.SlackMessage {
+
+    const text = `*${params.issueId}*: ${params.issueDescription}:\n*${params.componentId}*`;
+
+    return {
+        text: "*Incoming Xray Security Issue*",
+        attachments: [
+            {
+                text,
+                color: "warning",
+                fallback: "Security Issue",
+                mrkdwn_in: ["text"],
+            },
+            {
+                text: "There is no known fix for this issue",
+                color: "danger",
+                fallback: "Security Issue",
+                mrkdwn_in: ["text"],
+            },
+            {
+                text: attachmentText,
+                fallback: attachmentText,
+                mrkdwn_in: ["text"],
+                color: "good",
+                actions,
+            },
+        ],
+    };
+}
+
+function ignoreMessage(params: any): slack.SlackMessage {
+    const actions = [
+        buttonForCommand(
+            { text: "Re-enable" },
+            UnIgnoreViolationForProject.name,
+            params,
+        ),
+    ];
+    return generateMessage(
+        params,
+        "Notifications about this issue will be ignored for this project",
+        actions);
+}
+
+export function defaultMessage(params: any): slack.SlackMessage {
+    return generateMessage(
+        params,
+        "What can I do for you now?",
+        [
+            buttonForCommand({
+                text: "Block all downloads",
+            },
+                BlockArtifactoryDownload.name,
+                params),
+            buttonForCommand({
+                text: "Ignore for this project",
+            },
+                IgnoreViolationForProject.name,
+                params),
+        ]);
 }
 
 export function getRepoConfig() {

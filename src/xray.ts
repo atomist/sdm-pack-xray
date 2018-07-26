@@ -14,16 +14,25 @@
  * limitations under the License.
  */
 
-import { subscription } from "@atomist/automation-client/graph/graphQL";
 import {
     ExtensionPack,
-    Goal,
 } from "@atomist/sdm";
 import { metadata } from "@atomist/sdm/api-helper/misc/extensionPack";
+import {
+    BlockArtifactoryDownload,
+    IgnoreViolationForProject,
+    UnblockArtifactoryDownload,
+    UnIgnoreViolationForProject,
+} from "./handler/command/BlockDownloads";
+import { CreateNewXrayIssue } from "./handler/command/CreateNewIssue";
 
 export const XraySupport: ExtensionPack = {
     ...metadata(),
     configure: sdm => {
-        // do something
+        sdm.addCommand(BlockArtifactoryDownload);
+        sdm.addCommand(UnblockArtifactoryDownload);
+        sdm.addCommand(IgnoreViolationForProject);
+        sdm.addCommand(UnIgnoreViolationForProject);
+        sdm.addCommand(CreateNewXrayIssue);
     },
 };

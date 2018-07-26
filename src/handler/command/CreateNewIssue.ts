@@ -27,57 +27,27 @@ import {
 
 import axios from "axios";
 
+import { CommandHandlerRegistration, CommandListenerInvocation } from "@atomist/sdm";
 import * as stringify from "json-stringify-safe";
+import { BlockDownloadParams } from "./BlockDownloads";
 
-@CommandHandler("Create a new XRay Issue", "create xray issue")
-@Tags("xray", "security", "issue", "violation", "jfrog")
-export class CreateNewXrayIssue implements HandleCommand {
-
-    @Parameter({
-        displayName: "Issue identifier",
-        pattern: /^.*$/,
-        description: "the provider-unique identifer of the issue",
-        validInput: "Any string",
-        minLength: 1,
-        maxLength: 100,
-        required: true,
-        displayable: true,
-    })
-    public id: string;
-    @Parameter({
-        displayName: "Issue description",
-        pattern: /^.*$/,
-        description: "the description of the security issue",
-        validInput: "Any string",
-        minLength: 1,
-        maxLength: 500,
-        required: true,
-        displayable: true,
-    })
-    public description: string;
-
-    @Parameter({
-        displayName: "Component Identifier",
-        pattern: /^.*$/,
-        description: "the unique identifier of the component",
-        validInput: "group:artifact:version",
-        minLength: 8,
-        maxLength: 100,
-        required: true,
-        displayable: true,
-    })
-    public componentId: string;
-
-    public async handle(ctx: HandlerContext): Promise<HandlerResult> {
-        const issue = await createIssue(this.id, this.description, this.componentId);
+export const CreateNewXrayIssue: CommandHandlerRegistration<any> = {
+    name: "CreateNewXrayIssue",
+    tags: ["xray", "security", "issue", "violation", "jfrog"],
+    description: "Create a new XRay Issue",
+    intent: ["create xray issue"],
+    parameters: BlockDownloadParams,
+    listener: async (cli: CommandListenerInvocation<any>): Promise<any> => {
+        const params = cli.parameters;
+        const issue = await createIssue(params.issueId, params.description, params.componentId);
         if (issue) {
             logger.info("Create issue in xray: %j", issue);
-            await ctx.messageClient.respond(`Created issue in xray ${issue.id}`);
+            await cli.context.messageClient.respond(`Created issue in xray ${issue.id}`);
         } else {
             return FailurePromise;
         }
-    }
-}
+    },
+};
 
 export function createIssue(
     id: string,
