@@ -16,14 +16,10 @@
 
 import {
     EventFired,
-    EventHandler,
     FailurePromise,
-    HandleEvent,
     HandlerContext,
     HandlerResult,
     logger,
-    Secret,
-    Secrets,
     SuccessPromise,
 } from "@atomist/automation-client";
 
@@ -56,100 +52,96 @@ import { GitCommandGitProject } from "@atomist/automation-client/project/git/Git
 import * as _ from "lodash/";
 import * as uuid from "uuid";
 
-import { OnEvent } from "@atomist/automation-client/onEvent";
-import { NoParameters } from "@atomist/automation-client/SmartParameters";
 import { EventHandlerRegistration } from "@atomist/sdm";
 import { defaultMessage } from "../command/BlockDownloads";
+
+const handleViolation = async (e: EventFired<XrayViolations.Subscription>, ctx: HandlerContext) => {
+
+    const violation = latestBuildsOnly(e.data.XrayViolation[0]);
+
+    // buildId is the same for each issue when triggered by a build...
+    const buildIds = _.uniq(_.flatten(violation.issues.map(issue => {
+        return issue.impacted_artifacts.map(art => {
+            return art.display_name;
+        });
+    })));
+
+    if (isAtomistIssue(violation)) {
+        return handleAtomistIssue(ctx, violation);
+    }
+
+    logger.info("Found builds: %j", buildIds);
+    const buildId = _.first(buildIds);
+
+    if (!isNew(buildId)) {
+        logger.warn("Received duplicate event - ignoring");
+        return SuccessPromise;
+    }
+    const bits = buildId.split(":");
+    const buildName = bits[0];
+    const buildNumber = bits[1];
+
+    const sha = await buildToCommit(buildName, buildNumber);
+
+    const buildsForCommit = await getBuildsForCommit(ctx, sha, buildId);
+    if (buildsForCommit.Commit.length >= 1) {
+        const build = buildsForCommit.Commit[0].builds[0];
+        const buildInfo = JSON.parse(build.data);
+        const buildDir = (buildInfo ? buildInfo.buildDir : "");
+        const violations = await buildViolations(buildName, buildNumber);
+        const repo = new GitHubRepoRef(build.repo.owner, build.repo.name, build.push.branch);
+        const loader = gitHubRepoLoader({ token: process.env.GITHUB_TOKEN });
+        const project = await loader(repo);
+        const branch = await project.createBranch("atm-" + uuid.v4());
+
+        if (!branch.success) {
+            logger.warn("Error creating branch due to %j", branch.error);
+            return FailurePromise;
+        }
+
+        const buildFiles = await gradleDependencies(project, buildDir, violations);
+
+        const body = generateBody(buildFiles);
+
+        await updateGradleDependencies(project, buildFiles);
+        logger.info("Editor succeeded, committing");
+
+        const title = "Update dependencies due to XRay Violations";
+        const commited = await project.commit(title);
+        if (!commited.success) {
+            logger.warn("Error creating commit %j", commited.error);
+            return FailurePromise;
+        }
+
+        logger.info("Commit success. Pushing branch...");
+        const pushed = await project.push();
+        if (!pushed.success) {
+            logger.warn("Error pushing %j", pushed.error);
+            return FailurePromise;
+        }
+        logger.info("Push success. Creating PR with title %j/%j", title, body);
+        const commandGit = project as GitCommandGitProject;
+
+        const pr = await commandGit.raisePullRequest(title, body, repo.sha);
+        if (pr.success) {
+            logger.info("PR raised - profit");
+            return SuccessPromise;
+        } else {
+            logger.warn("PR creation failed %j", pr.error);
+            return FailurePromise;
+        }
+    }
+    logger.info("Could not find a commit %j", sha);
+    return SuccessPromise;
+};
 
 export const RaisePullRequestOnBuildViolation: EventHandlerRegistration<any> = {
     name: "RaisePullRequestOnBuildViolation",
     description: "Raise a PR when there are fixable violations",
     subscription: GraphQL.subscription("XrayViolations"),
     tags: ["xray", "PR", "security", "jfrog"],
-    listener: handleViolation(),
+    listener: handleViolation,
 };
-
-function handleViolation(): OnEvent<XrayViolations.Subscription, NoParameters> {
-    return async (e: EventFired<XrayViolations.Subscription>, ctx: HandlerContext) => {
-
-        const violation = latestBuildsOnly(e.data.XrayViolation[0]);
-
-        // buildId is the same for each issue when triggered by a build...
-        const buildIds = _.uniq(_.flatten(violation.issues.map(issue => {
-            return issue.impacted_artifacts.map(art => {
-                return art.display_name;
-            });
-        })));
-
-        if (isAtomistIssue(violation)) {
-            return handleAtomistIssue(ctx, violation);
-        }
-
-        logger.info("Found builds: %j", buildIds);
-        const buildId = _.first(buildIds);
-
-        if (!isNew(buildId)) {
-            logger.warn("Received duplicate event - ignoring");
-            return SuccessPromise;
-        }
-        const bits = buildId.split(":");
-        const buildName = bits[0];
-        const buildNumber = bits[1];
-
-        const sha = await buildToCommit(buildName, buildNumber);
-
-        const buildsForCommit = await getBuildsForCommit(ctx, sha, buildId);
-        if (buildsForCommit.Commit.length >= 1) {
-            const build = buildsForCommit.Commit[0].builds[0];
-            const buildInfo = JSON.parse(build.data);
-            const buildDir = (buildInfo ? buildInfo.buildDir : "");
-            const violations = await buildViolations(buildName, buildNumber);
-            const repo = new GitHubRepoRef(build.repo.owner, build.repo.name, build.push.branch);
-            const loader = gitHubRepoLoader({ token: process.env.GITHUB_TOKEN });
-            const project = await loader(repo);
-            const branch = await project.createBranch("atm-" + uuid.v4());
-
-            if (!branch.success) {
-                logger.warn("Error creating branch due to %j", branch.error);
-                return FailurePromise;
-            }
-
-            const buildFiles = await gradleDependencies(project, buildDir, violations);
-
-            const body = generateBody(buildFiles);
-
-            await updateGradleDependencies(project, buildFiles);
-            logger.info("Editor succeeded, committing");
-
-            const title = "Update dependencies due to XRay Violations";
-            const commited = await project.commit(title);
-            if (!commited.success) {
-                logger.warn("Error creating commit %j", commited.error);
-                return FailurePromise;
-            }
-
-            logger.info("Commit success. Pushing branch...");
-            const pushed = await project.push();
-            if (!pushed.success) {
-                logger.warn("Error pushing %j", pushed.error);
-                return FailurePromise;
-            }
-            logger.info("Push success. Creating PR with title %j/%j", title, body);
-            const commandGit = project as GitCommandGitProject;
-
-            const pr = await commandGit.raisePullRequest(title, body, repo.sha);
-            if (pr.success) {
-                logger.info("PR raised - profit");
-                return SuccessPromise;
-            } else {
-                logger.warn("PR creation failed %j", pr.error);
-                return FailurePromise;
-            }
-        }
-        logger.info("Could not find a commit %j", sha);
-        return SuccessPromise;
-    };
-}
 
 export function updateGradleDependencies(project: Project, files: BuildFile[]) {
     files.forEach(file => {
