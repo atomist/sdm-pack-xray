@@ -840,6 +840,7 @@ export namespace FindBuildForCommit {
 export namespace FindBuildsForCommit {
   export type Variables = {
     sha: string;
+    branch: string;
   };
 
   export type Query = {

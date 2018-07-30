@@ -17,6 +17,7 @@
 import {
     ExtensionPack,
 } from "@atomist/sdm";
+import { LogSuppressor } from "@atomist/sdm/api-helper/log/logInterpreters";
 import { metadata } from "@atomist/sdm/api-helper/misc/extensionPack";
 import {
     BlockArtifactoryDownload,
@@ -45,6 +46,6 @@ export const XraySupport: ExtensionPack = {
         sdm.addCommand(UnIgnoreViolationForProject);
         sdm.addCommand(CreateNewXrayIssue);
         // sdm.addEvent(RaisePullRequestOnBuildViolation);
-        sdm.addGoalImplementation("Xray Scan", XrayScan, xrayScanner(sdm));
+        sdm.addGoalImplementation("Xray Scan", XrayScan, xrayScanner(sdm), { logInterpreter: LogSuppressor });
     },
 };

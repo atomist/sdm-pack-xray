@@ -36,7 +36,7 @@ export const XrayScan = new Goal({
     displayName: "Xray Scan",
     workingDescription: "Scanning dependencies...",
     completedDescription: "Dependencies scanned",
-    failedDescription: "Dependency scan failed",
+    failedDescription: "Xray scan failed",
     retryFeasible: true,
 });
 
@@ -70,8 +70,8 @@ export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoalWithLog {
         }
         const build = commit.builds[0];
         const bits = build.buildId.split(":");
-        const buildName = bits[0];
-        const buildNumber = bits[1];
+        const buildName = bits[2];
+        const buildNumber = bits[3];
 
         progressLog.write(`scanning ${buildName}/${buildNumber}`);
         const scan = await scanBuild(
@@ -124,7 +124,7 @@ interface BuildDetails {
 export async function scanBuild(
     xray: XrayServerDetails,
     build: BuildDetails): Promise<XrayViolations.XrayViolation[]> {
-    let url = `${xray.credential}/scanBuild`;
+    let url = `${xray.baseUrl}/scanBuild`;
     const config = {
         auth: undefined,
         headers: {
@@ -133,7 +133,7 @@ export async function scanBuild(
     };
 
     if (typeof xray.credential === "string") {
-        url = `${xray.credential}/scanBuild?token=${xray.credential}`;
+        url = `${url}?token=${xray.credential}`;
     } else {
         config.auth = {
             username: xray.credential.username,
