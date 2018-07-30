@@ -30,6 +30,9 @@ import { XrayScan, xrayScanner } from "./XrayScanGoal";
 
 export const XraySupport: ExtensionPack = {
     ...metadata(),
+    requiredConfigurationValues: [
+        "sdm.xray.baseUrl",
+    ],
     configure: sdm => {
         sdm.addCommand(BlockArtifactoryDownload);
         sdm.addCommand(UnblockArtifactoryDownload);

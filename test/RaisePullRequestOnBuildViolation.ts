@@ -22,7 +22,7 @@ import "mocha";
 import * as fs from "fs";
 
 import * as assert from "power-assert";
-import { buildViolations, latestBuildsOnly } from "../src/handler/event/RaisePullRequestOnBuildViolation";
+import { latestBuildsOnly } from "../src/handler/event/RaisePullRequestOnBuildViolation";
 
 describe("buildViolations", () => {
 

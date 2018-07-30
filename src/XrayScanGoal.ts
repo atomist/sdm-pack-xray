@@ -14,8 +14,7 @@
  * limitations under the License.
  */
 
-import { GitProject } from "@atomist/automation-client/project/git/GitProject";
-import { spawnAndWatch } from "@atomist/automation-client/util/spawned";
+import { logger } from "@atomist/automation-client";
 import {
     ExecuteGoalResult,
     ExecuteGoalWithLog,
@@ -26,6 +25,7 @@ import {
     SoftwareDeliveryMachine,
 } from "@atomist/sdm";
 import { readSdmVersion } from "@atomist/sdm-core";
+import axios from "axios";
 
 export const XrayScan = new Goal({
     uniqueName: "XrayScan",
@@ -54,7 +54,48 @@ export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoalWithLog {
     return async (rwlc: RunWithLogContext): Promise<ExecuteGoalResult> => {
         const { credentials, id, context } = rwlc;
         const version = await rwlcVersion(rwlc);
-
         return null;
     };
+}
+
+interface XrayServerDetails {
+    baseUrl: string;
+    credential: string | { username: string, password: string };
+}
+
+interface BuildDetails {
+    artifactoryId: string;
+    buildNumber: string;
+    buildName: string;
+}
+
+/**
+ * Synchronously run an xray scan
+ * @param xray server details
+ * @param build build details
+ */
+export function scanBuild(xray: XrayServerDetails, build: BuildDetails): Promise<any> {
+    let url = `${xray.credential}/scanBuild`;
+    const config = {
+        auth: undefined,
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+
+    if (typeof xray.credential === "string") {
+        url = `${xray.credential}/scanBuild?token=${xray.credential}`;
+    } else {
+        config.auth = {
+            username: xray.credential.username,
+            password: xray.credential.password,
+        };
+    }
+
+    logger.info("Scanning build %j on %S", build, xray.baseUrl);
+
+    return axios.post(
+        url,
+        build,
+        config);
 }
