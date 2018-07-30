@@ -15,7 +15,7 @@ This page details all runtime OSS dependencies of `@atomist/sdm-pack-xray`.
 |[CC-BY-3.0](#cc-by-30)|3|
 |[CC0-1.0](#cc0-10)|1|
 |[ISC](#isc)|19|
-|[MIT](#mit)|103|
+|[MIT](#mit)|105|
 |[Unlicense](#unlicense)|1|
 
 #### Apache-2.0
@@ -126,7 +126,7 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 |`es6-symbol`|`3.1.1`|Mariusz Nowak|[https://github.com/medikoo/es6-symbol](https://github.com/medikoo/es6-symbol)|
 |`escape-string-regexp`|`1.0.5`|Sindre Sorhus|[https://github.com/sindresorhus/escape-string-regexp](https://github.com/sindresorhus/escape-string-regexp)|
 |`event-emitter`|`0.3.5`|Mariusz Nowak|[https://github.com/medikoo/event-emitter](https://github.com/medikoo/event-emitter)|
-|`extend`|`3.0.1`|Stefan Thomas|[https://github.com/justmoon/node-extend](https://github.com/justmoon/node-extend)|
+|`extend`|`3.0.2`|Stefan Thomas|[https://github.com/justmoon/node-extend](https://github.com/justmoon/node-extend)|
 |`flatmap`|`0.0.3`|Boris Okunskiy|[https://github.com/inca/flatmapjs](https://github.com/inca/flatmapjs)|
 |`fs-extra`|`6.0.1`|JP Richardson|[https://github.com/jprichardson/node-fs-extra](https://github.com/jprichardson/node-fs-extra)|
 |`has-flag`|`3.0.0`|Sindre Sorhus|[https://github.com/sindresorhus/has-flag](https://github.com/sindresorhus/has-flag)|
@@ -154,7 +154,7 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 |`mkdirp`|`0.5.1`|James Halliday|[https://github.com/substack/node-mkdirp](https://github.com/substack/node-mkdirp)|
 |`ms`|`2.0.0`||[https://github.com/zeit/ms](https://github.com/zeit/ms)|
 |`next-tick`|`1.0.0`|Mariusz Nowak|[https://github.com/medikoo/next-tick](https://github.com/medikoo/next-tick)|
-|`node-fetch`|`2.1.2`|David Frank|[https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch)|
+|`node-fetch`|`2.2.0`|David Frank|[https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch)|
 |`os-homedir`|`1.0.2`|Sindre Sorhus|[https://github.com/sindresorhus/os-homedir](https://github.com/sindresorhus/os-homedir)|
 |`os-tmpdir`|`1.0.2`|Sindre Sorhus|[https://github.com/sindresorhus/os-tmpdir](https://github.com/sindresorhus/os-tmpdir)|
 |`parse-entities`|`1.1.2`|Titus Wormer|[https://github.com/wooorm/parse-entities](https://github.com/wooorm/parse-entities)|
@@ -188,9 +188,11 @@ MIT License - [http://www.opensource.org/licenses/MIT](http://www.opensource.org
 |`unist-util-remove-position`|`1.1.2`|Titus Wormer|[https://github.com/syntax-tree/unist-util-remove-position](https://github.com/syntax-tree/unist-util-remove-position)|
 |`unist-util-remove`|`1.0.1`|Eugene Sharygin|[https://github.com/syntax-tree/unist-util-remove](https://github.com/syntax-tree/unist-util-remove)|
 |`unist-util-stringify-position`|`1.1.2`|Titus Wormer|[https://github.com/syntax-tree/unist-util-stringify-position](https://github.com/syntax-tree/unist-util-stringify-position)|
-|`unist-util-visit`|`1.3.1`|Titus Wormer|[https://github.com/syntax-tree/unist-util-visit](https://github.com/syntax-tree/unist-util-visit)|
+|`unist-util-visit-parents`|`2.0.1`|Titus Wormer|[https://github.com/syntax-tree/unist-util-visit-parents](https://github.com/syntax-tree/unist-util-visit-parents)|
+|`unist-util-visit`|`1.4.0`|Titus Wormer|[https://github.com/syntax-tree/unist-util-visit](https://github.com/syntax-tree/unist-util-visit)|
 |`universalify`|`0.1.2`|Ryan Zimmerman|[https://github.com/RyanZim/universalify](https://github.com/RyanZim/universalify)|
 |`util-extend`|`1.0.3`||[https://github.com/isaacs/util-extend](https://github.com/isaacs/util-extend)|
+|`uuid`|`3.3.2`||[https://github.com/kelektiv/node-uuid](https://github.com/kelektiv/node-uuid)|
 |`vfile-location`|`2.0.3`|Titus Wormer|[https://github.com/vfile/vfile-location](https://github.com/vfile/vfile-location)|
 |`vfile-message`|`1.0.1`|Titus Wormer|[https://github.com/vfile/vfile-message](https://github.com/vfile/vfile-message)|
 |`vfile`|`2.3.0`|Titus Wormer|[https://github.com/vfile/vfile](https://github.com/vfile/vfile)|
