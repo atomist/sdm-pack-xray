@@ -15,13 +15,37 @@
  */
 
 import { Configuration } from "@atomist/automation-client";
-import { SoftwareDeliveryMachine } from "@atomist/sdm";
+import {
+    AnyPush,
+    Goal,
+    Goals,
+    goals,
+    IndependentOfEnvironment,
+    SoftwareDeliveryMachine,
+} from "@atomist/sdm";
 import {
     configureSdm,
     createSoftwareDeliveryMachine,
 } from "@atomist/sdm-core";
+
+import { Project } from "@atomist/automation-client/project/Project";
+import * as build from "@atomist/sdm/api-helper/dsl/buildDsl";
 import { SoftwareDeliveryMachineConfiguration } from "@atomist/sdm/api/machine/SoftwareDeliveryMachineOptions";
 import { XraySupport } from "../src/xray";
+import { XrayScan } from "../src/XrayScanGoal";
+
+export const BuildWithJenkins = new Goal({
+    uniqueName: "BuildWithJenkins",
+    environment: IndependentOfEnvironment,
+    orderedName: "1-build-with-jenkins",
+    displayName: "build with jenkins",
+    workingDescription: "build started",
+    completedDescription: "build success",
+    failedDescription: "build failed",
+});
+
+export const TestGoals: Goals = goals("Test")
+    .plan(XrayScan).after(BuildWithJenkins);
 
 export function machineMaker(config: SoftwareDeliveryMachineConfiguration): SoftwareDeliveryMachine {
 
@@ -29,6 +53,12 @@ export function machineMaker(config: SoftwareDeliveryMachineConfiguration): Soft
         name: `${configuration.name}-test`,
         configuration: config,
     });
+
+    sdm.addKnownSideEffect(
+        BuildWithJenkins,
+        "buildWithJenkins",
+        AnyPush,
+    );
 
     // put in other things you need for your test
     sdm.addExtensionPacks(XraySupport);

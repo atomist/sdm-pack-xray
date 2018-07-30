@@ -795,10 +795,51 @@ export enum XrayPackageType {
   Build = "Build"
 }
 
-export namespace BuildsForCommit {
+export namespace FindBuildForCommit {
   export type Variables = {
     sha: string;
     buildId: string;
+  };
+
+  export type Query = {
+    __typename?: "Query";
+    Commit?: Commit[] | null;
+  };
+
+  export type Commit = {
+    __typename?: "Commit";
+    builds?: Builds[] | null;
+  };
+
+  export type Builds = {
+    __typename?: "Build";
+    buildId?: string | null;
+    repo?: Repo | null;
+    data?: string | null;
+    push?: Push | null;
+    status?: BuildStatus | null;
+  };
+
+  export type Repo = {
+    __typename?: "Repo";
+    owner?: string | null;
+    name?: string | null;
+    channels?: Channels[] | null;
+  };
+
+  export type Channels = {
+    __typename?: "ChatChannel";
+    channelId?: string | null;
+  };
+
+  export type Push = {
+    __typename?: "Push";
+    branch?: string | null;
+  };
+}
+export namespace FindBuildsForCommit {
+  export type Variables = {
+    sha: string;
   };
 
   export type Query = {

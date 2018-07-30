@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { logger } from "@atomist/automation-client";
+import { FailurePromise, HandlerContext, logger } from "@atomist/automation-client";
 import {
     ExecuteGoalResult,
     ExecuteGoalWithLog,
@@ -26,6 +26,8 @@ import {
 } from "@atomist/sdm";
 import { readSdmVersion } from "@atomist/sdm-core";
 import axios from "axios";
+import * as types from "./typings/types";
+import { XrayViolations } from "./typings/types";
 
 export const XrayScan = new Goal({
     uniqueName: "XrayScan",
@@ -52,10 +54,55 @@ export async function rwlcVersion(gi: GoalInvocation): Promise<string> {
 
 export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoalWithLog {
     return async (rwlc: RunWithLogContext): Promise<ExecuteGoalResult> => {
-        const { credentials, id, context } = rwlc;
-        const version = await rwlcVersion(rwlc);
-        return null;
+        const { id, context, progressLog } = rwlc;
+        progressLog.write("looking for builds");
+        const builds = await getCommitBuilds(context, id.sha, id.branch);
+        // const version = await rwlcVersion(rwlc);
+
+        if (!builds.Commit || builds.Commit.length < 1) {
+            progressLog.write("commit not found");
+            return FailurePromise;
+        }
+        const commit = builds.Commit[0];
+        if (!commit.builds || commit.builds.length < 1) {
+            progressLog.write("no builds found");
+            return FailurePromise;
+        }
+        const build = commit.builds[0];
+        const bits = build.buildId.split(":");
+        const buildName = bits[0];
+        const buildNumber = bits[1];
+
+        progressLog.write(`scanning ${buildName}/${buildNumber}`);
+        const scan = await scanBuild(
+            {
+                baseUrl: sdm.configuration.sdm.xray.baseUrl,
+                credential: {
+                    username: sdm.configuration.sdm.xray.username,
+                    password: sdm.configuration.sdm.xray.password,
+                },
+            }, {
+                artifactoryId: sdm.configuration.sdm.xray.artifactoryServerId,
+                buildName,
+                buildNumber,
+            });
+
     };
+}
+
+async function getCommitBuilds(
+    ctx: HandlerContext,
+    sha: string,
+    branch: string): Promise<types.FindBuildsForCommit.Query> {
+    const buildsForCommit = await ctx.graphClient
+        .query<types.FindBuildsForCommit.Query, types.FindBuildsForCommit.Variables>(
+            {
+                name: "findBuildsForCommit",
+                variables:
+                    { sha, branch: `^.*${branch}$` },
+            });
+    logger.info("Got graphql response %j", buildsForCommit);
+    return buildsForCommit;
 }
 
 interface XrayServerDetails {
@@ -74,7 +121,9 @@ interface BuildDetails {
  * @param xray server details
  * @param build build details
  */
-export function scanBuild(xray: XrayServerDetails, build: BuildDetails): Promise<any> {
+export async function scanBuild(
+    xray: XrayServerDetails,
+    build: BuildDetails): Promise<XrayViolations.XrayViolation[]> {
     let url = `${xray.credential}/scanBuild`;
     const config = {
         auth: undefined,
@@ -94,8 +143,6 @@ export function scanBuild(xray: XrayServerDetails, build: BuildDetails): Promise
 
     logger.info("Scanning build %j on %S", build, xray.baseUrl);
 
-    return axios.post(
-        url,
-        build,
-        config);
+    const result = await axios.post(url, build, config);
+    return result.data.alerts as XrayViolations.XrayViolation[];
 }

@@ -168,11 +168,11 @@ export function updateGradleDependencies(project: Project, files: BuildFile[]) {
 async function getBuildsForCommit(
     ctx: HandlerContext,
     sha: string,
-    buildId: string): Promise<types.BuildsForCommit.Query> {
+    buildId: string): Promise<types.FindBuildForCommit.Query> {
     const buildsForCommit = await ctx.graphClient
-        .query<types.BuildsForCommit.Query, types.BuildsForCommit.Variables>(
+        .query<types.FindBuildForCommit.Query, types.FindBuildForCommit.Variables>(
             {
-                name: "buildsForCommit",
+                name: "findBuildForCommit",
                 variables:
                     { sha, buildId: `^.*${buildId}$` },
             });
@@ -374,7 +374,7 @@ export function isAtomistIssue(violation: XrayViolations.XrayViolation): boolean
 interface Impact {
     impacted: XrayViolations.ImpactedArtifacts[];
     sha: string;
-    repo: types.BuildsForCommit.Repo;
+    repo: types.FindBuildForCommit.Repo;
 }
 export async function handleAtomistIssue(
     ctx: HandlerContext,

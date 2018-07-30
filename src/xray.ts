@@ -32,6 +32,11 @@ export const XraySupport: ExtensionPack = {
     ...metadata(),
     requiredConfigurationValues: [
         "sdm.xray.baseUrl",
+        "sdm.xray.artifactoryServerId",
+        "sdm.xray.username",
+        "sdm.xray.password",
+        "sdm.xray.artifactory.baseUrl",
+        "sdm.xray.artifactory.token",
     ],
     configure: sdm => {
         sdm.addCommand(BlockArtifactoryDownload);
@@ -39,7 +44,7 @@ export const XraySupport: ExtensionPack = {
         sdm.addCommand(IgnoreViolationForProject);
         sdm.addCommand(UnIgnoreViolationForProject);
         sdm.addCommand(CreateNewXrayIssue);
-        sdm.addEvent(RaisePullRequestOnBuildViolation);
+        // sdm.addEvent(RaisePullRequestOnBuildViolation);
         sdm.addGoalImplementation("Xray Scan", XrayScan, xrayScanner(sdm));
     },
 };

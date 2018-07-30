@@ -1,7 +1,8 @@
-query buildsForCommit ($sha: String!, $buildId: String!) {
+query findBuildsForCommit ($sha: String!, $branch: String!) {
   Commit(sha: $sha){
     builds @required {
-      buildId @matches(re: $buildId)
+      buildId @required
+      branch @matches(re: $branch)
       repo {
         owner @required
         name @required

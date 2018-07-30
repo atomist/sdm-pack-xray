@@ -1,0 +1,19 @@
+query findBuildForCommit ($sha: String!, $buildId: String!) {
+  Commit(sha: $sha){
+    builds @required {
+      buildId @matches(re: $buildId)
+      repo {
+        owner @required
+        name @required
+        channels {
+          channelId @required
+        }
+      }
+      data @required
+      push {
+        branch @required
+      }
+      status @matches(re: "passed")
+    }
+  }
+}
