@@ -86,7 +86,7 @@ export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoalWithLog {
                 buildName,
                 buildNumber,
             });
-
+        logger.info(`Got some results ${scan.length} ${JSON.stringify(scan)}`);
     };
 }
 
