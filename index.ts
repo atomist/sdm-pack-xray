@@ -14,4 +14,4 @@
  * limitations under the License.
  */
 
-export { XraySupport } from "./xray";
+export { XraySupport } from "./lib/xray";

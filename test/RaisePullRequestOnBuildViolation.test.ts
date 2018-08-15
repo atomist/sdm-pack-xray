@@ -14,15 +14,10 @@
  * limitations under the License.
  */
 
-import {
-    logger,
-} from "@atomist/automation-client";
-import "mocha";
-
 import * as fs from "fs";
 
 import * as assert from "power-assert";
-import { latestBuildsOnly } from "../src/handler/event/RaisePullRequestOnBuildViolation";
+import { latestBuildsOnly } from "../lib/handler/event/RaisePullRequestOnBuildViolation";
 
 describe("buildViolations", () => {
 

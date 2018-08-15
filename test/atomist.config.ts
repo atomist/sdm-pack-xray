@@ -28,11 +28,9 @@ import {
     createSoftwareDeliveryMachine,
 } from "@atomist/sdm-core";
 
-import { Project } from "@atomist/automation-client/project/Project";
-import * as build from "@atomist/sdm/api-helper/dsl/buildDsl";
 import { SoftwareDeliveryMachineConfiguration } from "@atomist/sdm/api/machine/SoftwareDeliveryMachineOptions";
-import { XraySupport } from "../src/xray";
-import { XrayScan } from "../src/XrayScanGoal";
+import { XraySupport } from "../lib/xray";
+import { XrayScan } from "../lib/XrayScanGoal";
 
 export const TestGoals: Goals = goals("Test")
     .plan(BuildGoal)

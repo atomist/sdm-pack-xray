@@ -23,14 +23,6 @@ import {
     SuccessPromise,
 } from "@atomist/automation-client";
 
-import {
-    addressSlackChannels,
-    buttonForCommand,
-    menuForCommand,
-    MenuSpecification,
-    OptionGroup,
-} from "@atomist/automation-client/spi/message/MessageClient";
-
 import { gitHubRepoLoader } from "@atomist/automation-client/operations/common/gitHubRepoLoader";
 import { File } from "@atomist/automation-client/project/File";
 import { Project } from "@atomist/automation-client/project/Project";
@@ -103,7 +95,7 @@ const handleViolation = async (e: EventFired<XrayViolations.Subscription>, ctx: 
 
         const body = generateBody(buildFiles);
 
-        await updateGradleDependencies(project, buildFiles);
+        updateGradleDependencies(project, buildFiles);
         logger.info("Editor succeeded, committing");
 
         const title = "Update dependencies due to XRay Violations";
@@ -396,10 +388,11 @@ export async function handleAtomistIssue(
                 };
             }
         }
+        return undefined;
     }));
 
     if (toReport.length > 0) {
-        await toReport.map(impact => {
+        toReport.map(impact => {
             const cid = impact.impacted[0].infected_files[0].display_name;
             const msg = defaultMessage({ componentId: cid, issueId: issue.summary, issueDescription: issue.description });
             return ctx.messageClient.addressChannels(

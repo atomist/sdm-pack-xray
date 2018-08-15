@@ -15,14 +15,8 @@
  */
 
 import {
-    CommandHandler,
     FailurePromise,
-    HandleCommand,
-    HandlerContext,
-    HandlerResult,
     logger,
-    Parameter,
-    Tags,
 } from "@atomist/automation-client";
 
 import axios from "axios";

@@ -14,14 +14,9 @@
  * limitations under the License.
  */
 
-import {
-    logger,
-} from "@atomist/automation-client";
-import "mocha";
-
 import { InMemoryProject } from "@atomist/automation-client/project/mem/InMemoryProject";
 import * as assert from "power-assert";
-import { gradleDependencies, updateGradleDependencies } from "../src/handler/event/RaisePullRequestOnBuildViolation";
+import { gradleDependencies, updateGradleDependencies } from "../lib/handler/event/RaisePullRequestOnBuildViolation";
 
 const stringNotation =
     `

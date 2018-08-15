@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { FailurePromise, HandlerContext, logger } from "@atomist/automation-client";
+import { FailurePromise, HandlerContext, logger, SuccessPromise } from "@atomist/automation-client";
 import {
     ExecuteGoalResult,
     ExecuteGoalWithLog,
@@ -87,6 +87,7 @@ export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoalWithLog {
                 buildNumber,
             });
         logger.info(`Got some results ${scan.length} ${JSON.stringify(scan)}`);
+        return SuccessPromise;
     };
 }
 
@@ -125,8 +126,7 @@ export async function scanBuild(
     xray: XrayServerDetails,
     build: BuildDetails): Promise<XrayViolations.XrayViolation[]> {
     let url = `${xray.baseUrl}/scanBuild`;
-    const config = {
-        auth: undefined,
+    const config: any = {
         headers: {
             "Content-Type": "application/json",
         },
