@@ -2,7 +2,11 @@
   "name": "@atomist/sdm-pack-xray",
   "version": "0.0.1",
   "description": "Extension Pack for an Atomist SDM to receive and act on JFrog Xray violation events",
-  "author": "Atomist, Inc.",
+  "author": {
+    "name": "Atomist",
+    "email": "support@atomist.com",
+    "url": "https://atomist.com/"
+  },
   "license": "Apache-2.0",
   "homepage": "https://github.com/atomist/sdm-pack-xray#readme",
   "repository": {
