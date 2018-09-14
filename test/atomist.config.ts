@@ -21,6 +21,7 @@ import {
     Goals,
     goals,
     SoftwareDeliveryMachine,
+    SoftwareDeliveryMachineConfiguration,
     whenPushSatisfies,
 } from "@atomist/sdm";
 import {
@@ -28,7 +29,6 @@ import {
     createSoftwareDeliveryMachine,
 } from "@atomist/sdm-core";
 
-import { SoftwareDeliveryMachineConfiguration } from "@atomist/sdm/api/machine/SoftwareDeliveryMachineOptions";
 import { XraySupport } from "../lib/xray";
 import { XrayScan } from "../lib/XrayScanGoal";
 
@@ -45,7 +45,7 @@ export function machineMaker(config: SoftwareDeliveryMachineConfiguration): Soft
         },
         whenPushSatisfies(AnyPush).itMeans("Always run").setGoals(TestGoals));
 
-    sdm.addKnownSideEffect(
+    sdm.addGoalSideEffect(
         BuildGoal,
         "buildWithJenkins",
         AnyPush,

@@ -16,12 +16,11 @@
 
 import { FailurePromise, HandlerContext, logger, SuccessPromise } from "@atomist/automation-client";
 import {
+    ExecuteGoal,
     ExecuteGoalResult,
-    ExecuteGoalWithLog,
     Goal,
     GoalInvocation,
     IndependentOfEnvironment,
-    RunWithLogContext,
     SoftwareDeliveryMachine,
 } from "@atomist/sdm";
 import { readSdmVersion } from "@atomist/sdm-core";
@@ -52,9 +51,9 @@ export async function rwlcVersion(gi: GoalInvocation): Promise<string> {
     return version;
 }
 
-export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoalWithLog {
-    return async (rwlc: RunWithLogContext): Promise<ExecuteGoalResult> => {
-        const { id, context, progressLog } = rwlc;
+export function xrayScanner(sdm: SoftwareDeliveryMachine): ExecuteGoal {
+    return async (r: GoalInvocation): Promise<ExecuteGoalResult> => {
+        const { id, context, progressLog } = r;
         progressLog.write("looking for builds");
         const builds = await getCommitBuilds(context, id.sha, id.branch);
         // const version = await rwlcVersion(rwlc);
@@ -106,12 +105,12 @@ async function getCommitBuilds(
     return buildsForCommit;
 }
 
-interface XrayServerDetails {
+export interface XrayServerDetails {
     baseUrl: string;
     credential: string | { username: string, password: string };
 }
 
-interface BuildDetails {
+export interface BuildDetails {
     artifactoryId: string;
     buildNumber: string;
     buildName: string;

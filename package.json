@@ -1,6 +1,6 @@
 {
   "name": "@atomist/sdm-pack-xray",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Extension Pack for an Atomist SDM to receive and act on JFrog Xray violation events",
   "author": {
     "name": "Atomist",
@@ -47,10 +47,10 @@
     "@atomist/slack-messages": "*"
   },
   "devDependencies": {
-    "@atomist/automation-client": "^0.18.0",
-    "@atomist/sdm": "0.3.2-20180727125411",
-    "@atomist/sdm-core": "0.3.2-20180730094924",
-    "@atomist/slack-messages": "^0.12.1",
+    "@atomist/automation-client": "1.0.0-master.20180914103733",
+    "@atomist/sdm": "1.0.0-master.20180914101315",
+    "@atomist/sdm-core": "1.0.0-master.20180914103207",
+    "@atomist/slack-messages": "1.0.1-master.20180830190736",
     "@types/lodash": "^4.14.109",
     "@types/mocha": "^2.2.48",
     "@types/node": "^9.4.1",

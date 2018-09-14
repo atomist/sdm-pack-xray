@@ -16,9 +16,9 @@
 
 import {
     ExtensionPack,
+    LogSuppressor,
+    metadata,
 } from "@atomist/sdm";
-import { LogSuppressor } from "@atomist/sdm/api-helper/log/logInterpreters";
-import { metadata } from "@atomist/sdm/api-helper/misc/extensionPack";
 import {
     BlockArtifactoryDownload,
     IgnoreViolationForProject,

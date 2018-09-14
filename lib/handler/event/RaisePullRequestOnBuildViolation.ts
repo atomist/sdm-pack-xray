@@ -17,16 +17,18 @@
 import {
     EventFired,
     FailurePromise,
+    File,
+    GitCommandGitProject,
+    gitHubRepoLoader,
+    GitHubRepoRef,
     HandlerContext,
     HandlerResult,
     logger,
+    Project,
     SuccessPromise,
+    toPromise,
 } from "@atomist/automation-client";
 
-import { gitHubRepoLoader } from "@atomist/automation-client/operations/common/gitHubRepoLoader";
-import { File } from "@atomist/automation-client/project/File";
-import { Project } from "@atomist/automation-client/project/Project";
-import { toPromise } from "@atomist/automation-client/project/util/projectUtils";
 import axios from "axios";
 
 import * as stringify from "json-stringify-safe";
@@ -34,12 +36,9 @@ import * as stringify from "json-stringify-safe";
 import { XrayViolations } from "../../typings/types";
 import * as types from "../../typings/types";
 
-import * as GraphQL from "@atomist/automation-client/graph/graphQL";
+import * as GraphQL from "@atomist/automation-client/lib/graph/graphQL";
 
 import { isNew } from "./Cache";
-
-import { GitHubRepoRef } from "@atomist/automation-client/operations/common/GitHubRepoRef";
-import { GitCommandGitProject } from "@atomist/automation-client/project/git/GitCommandGitProject";
 
 import * as _ from "lodash/";
 import * as uuid from "uuid";

@@ -15,20 +15,14 @@
  */
 
 import {
+    buttonForCommand,
     FailurePromise,
     logger,
     SuccessPromise,
 } from "@atomist/automation-client";
-
-import {
-    buttonForCommand,
-} from "@atomist/automation-client/spi/message/MessageClient";
-
-import * as slack from "@atomist/slack-messages/SlackMessages";
-
-import axios from "axios";
-
 import { CommandHandlerRegistration, CommandListenerInvocation } from "@atomist/sdm";
+import * as slack from "@atomist/slack-messages";
+import axios from "axios";
 import * as stringify from "json-stringify-safe";
 import _ = require("lodash");
 
