@@ -16,7 +16,10 @@
 
 import { InMemoryProject } from "@atomist/automation-client";
 import * as assert from "power-assert";
-import { gradleDependencies, updateGradleDependencies } from "../lib/handler/event/RaisePullRequestOnBuildViolation";
+import {
+    gradleDependencies,
+    updateGradleDependencies,
+} from "../lib/handler/event/RaisePullRequestOnBuildViolation";
 
 const stringNotation =
     `
