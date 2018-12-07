@@ -21,7 +21,10 @@ import {
 
 import axios from "axios";
 
-import { CommandHandlerRegistration, CommandListenerInvocation } from "@atomist/sdm";
+import {
+    CommandHandlerRegistration,
+    CommandListenerInvocation,
+} from "@atomist/sdm";
 import * as stringify from "json-stringify-safe";
 import { BlockDownloadParams } from "./BlockDownloads";
 
