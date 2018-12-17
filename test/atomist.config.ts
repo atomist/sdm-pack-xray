@@ -18,8 +18,8 @@ import { Configuration } from "@atomist/automation-client";
 import {
     AnyPush,
     BuildGoal,
-    Goals,
     goals,
+    Goals,
     SoftwareDeliveryMachine,
     SoftwareDeliveryMachineConfiguration,
     whenPushSatisfies,
