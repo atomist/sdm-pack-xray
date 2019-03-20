@@ -26,7 +26,10 @@ import {
     UnIgnoreViolationForProject,
 } from "./handler/command/BlockDownloads";
 import { CreateNewXrayIssue } from "./handler/command/CreateNewIssue";
-import { XrayScan, xrayScanner } from "./XrayScanGoal";
+import {
+    XrayScan,
+    xrayScanner,
+} from "./XrayScanGoal";
 
 export const XraySupport: ExtensionPack = {
     ...metadata(),
