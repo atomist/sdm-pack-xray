@@ -47,10 +47,10 @@
     "@atomist/slack-messages": "*"
   },
   "devDependencies": {
-    "@atomist/automation-client": "1.0.0-master.20180914103733",
-    "@atomist/sdm": "1.0.0-master.20180914101315",
-    "@atomist/sdm-core": "1.0.0-master.20180914103207",
-    "@atomist/slack-messages": "1.0.1-master.20180830190736",
+    "@atomist/automation-client": "^1.3.0",
+    "@atomist/sdm": "^1.3.0",
+    "@atomist/sdm-core": "^1.3.0",
+    "@atomist/slack-messages": "^1.1.0",
     "@types/lodash": "^4.14.109",
     "@types/mocha": "^2.2.48",
     "@types/node": "^9.4.1",
