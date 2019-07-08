@@ -14,7 +14,12 @@
  * limitations under the License.
  */
 
-import { FailurePromise, HandlerContext, logger, SuccessPromise } from "@atomist/automation-client";
+import {
+    FailurePromise,
+    HandlerContext,
+    logger,
+    SuccessPromise,
+} from "@atomist/automation-client";
 import {
     ExecuteGoal,
     ExecuteGoalResult,

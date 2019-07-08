@@ -20,7 +20,10 @@ import {
     logger,
     SuccessPromise,
 } from "@atomist/automation-client";
-import { CommandHandlerRegistration, CommandListenerInvocation } from "@atomist/sdm";
+import {
+    CommandHandlerRegistration,
+    CommandListenerInvocation,
+} from "@atomist/sdm";
 import * as slack from "@atomist/slack-messages";
 import axios from "axios";
 import * as stringify from "json-stringify-safe";
