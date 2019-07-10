@@ -159,6 +159,6 @@ describe("listDependencies", () => {
                         }],
                     path: "build.gradle",
                 });
-            }).then(() => done(), done);
+            }).then(done, done);
     });
 });
