@@ -19,3 +19,4 @@ git-info.json
 /profile.txt
 /log
 /doc
+/lib/typings/types.ts

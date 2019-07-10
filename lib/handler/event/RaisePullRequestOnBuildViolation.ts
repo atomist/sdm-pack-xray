@@ -16,35 +16,26 @@
 
 import {
     EventFired,
-    FailurePromise,
-    File,
     GitCommandGitProject,
     gitHubRepoLoader,
     GitHubRepoRef,
+    GraphQL,
+    guid,
     HandlerContext,
     HandlerResult,
     logger,
     Project,
-    SuccessPromise,
-    toPromise,
+    ProjectFile,
+    projectUtils,
 } from "@atomist/automation-client";
-
+import { EventHandlerRegistration } from "@atomist/sdm";
 import axios from "axios";
-
 import * as stringify from "json-stringify-safe";
-
+import * as _ from "lodash";
 import { XrayViolations } from "../../typings/types";
 import * as types from "../../typings/types";
-
-import * as GraphQL from "@atomist/automation-client/lib/graph/graphQL";
-
-import { isNew } from "./Cache";
-
-import * as _ from "lodash/";
-import * as uuid from "uuid";
-
-import { EventHandlerRegistration } from "@atomist/sdm";
 import { defaultMessage } from "../command/BlockDownloads";
+import { isNew } from "./Cache";
 
 const handleViolation = async (e: EventFired<XrayViolations.Subscription>, ctx: HandlerContext) => {
 
@@ -65,8 +56,9 @@ const handleViolation = async (e: EventFired<XrayViolations.Subscription>, ctx: 
     const buildId = _.first(buildIds);
 
     if (!isNew(buildId)) {
-        logger.warn("Received duplicate event - ignoring");
-        return SuccessPromise;
+        const message = "Received duplicate event - ignoring";
+        logger.warn(message);
+        return { code: 0, message };
     }
     const bits = buildId.split(":");
     const buildName = bits[0];
@@ -75,55 +67,62 @@ const handleViolation = async (e: EventFired<XrayViolations.Subscription>, ctx: 
     const sha = await buildToCommit(buildName, buildNumber);
 
     const buildsForCommit = await getBuildsForCommit(ctx, sha, buildId);
-    if (buildsForCommit.Commit.length >= 1) {
-        const build = buildsForCommit.Commit[0].builds[0];
-        const buildInfo = JSON.parse(build.data);
-        const buildDir = (buildInfo ? buildInfo.buildDir : "");
-        const violations = await buildViolations(buildName, buildNumber);
-        const repo = new GitHubRepoRef(build.repo.owner, build.repo.name, build.push.branch);
-        const loader = gitHubRepoLoader({ token: process.env.GITHUB_TOKEN });
-        const project = await loader(repo);
-        const branch = await project.createBranch("atm-" + uuid.v4());
-
-        if (!branch.success) {
-            logger.warn("Error creating branch due to %j", branch.error);
-            return FailurePromise;
-        }
-
-        const buildFiles = await gradleDependencies(project, buildDir, violations);
-
-        const body = generateBody(buildFiles);
-
-        updateGradleDependencies(project, buildFiles);
-        logger.info("Editor succeeded, committing");
-
-        const title = "Update dependencies due to XRay Violations";
-        const commited = await project.commit(title);
-        if (!commited.success) {
-            logger.warn("Error creating commit %j", commited.error);
-            return FailurePromise;
-        }
-
-        logger.info("Commit success. Pushing branch...");
-        const pushed = await project.push();
-        if (!pushed.success) {
-            logger.warn("Error pushing %j", pushed.error);
-            return FailurePromise;
-        }
-        logger.info("Push success. Creating PR with title %j/%j", title, body);
-        const commandGit = project as GitCommandGitProject;
-
-        const pr = await commandGit.raisePullRequest(title, body, repo.sha);
-        if (pr.success) {
-            logger.info("PR raised - profit");
-            return SuccessPromise;
-        } else {
-            logger.warn("PR creation failed %j", pr.error);
-            return FailurePromise;
-        }
+    if (buildsForCommit.Commit.length < 1) {
+        const noCommit = `Could not find a commit for SHA '${sha}'`;
+        logger.info(noCommit);
+        return { code: 0, message: noCommit };
     }
-    logger.info("Could not find a commit %j", sha);
-    return SuccessPromise;
+
+    const build = buildsForCommit.Commit[0].builds[0];
+    const buildInfo = JSON.parse(build.data);
+    const buildDir = (buildInfo ? buildInfo.buildDir : "");
+    const violations = await buildViolations(buildName, buildNumber);
+    const repo = new GitHubRepoRef(build.repo.owner, build.repo.name, build.push.branch);
+    const loader = gitHubRepoLoader({ token: process.env.GITHUB_TOKEN });
+    const project = await loader(repo);
+    try {
+        await project.createBranch(`atm-${guid()}`);
+    } catch (e) {
+        const message = `Error creating branch: ${e.message}`;
+        logger.error(message);
+        return { code: 1, message };
+    }
+
+    const buildFiles = await gradleDependencies(project, buildDir, violations);
+    const body = generateBody(buildFiles);
+
+    updateGradleDependencies(project, buildFiles);
+    logger.info("Editor succeeded, committing");
+
+    const title = "Update dependencies due to XRay Violations";
+    try {
+        await project.commit(title);
+    } catch (e) {
+        const message = `Error creating commit: ${e.message}`;
+        logger.error(message);
+        return { code: 1, message };
+    }
+
+    logger.info("Commit success. Pushing branch...");
+    try {
+        await project.push();
+    } catch (e) {
+        const message = `Error pushing: ${e.message}`;
+        logger.error(message);
+        return { code: 1, message };
+    }
+    logger.info("Push success. Creating PR with title %j/%j", title, body);
+    const commandGit = project as GitCommandGitProject;
+    try {
+        await commandGit.raisePullRequest(title, body, repo.sha);
+    } catch (e) {
+        const message = `PR creation failed: ${e.message}`;
+        logger.error(message);
+        return { code: 1, message };
+    }
+    const msg = "PR raised";
+    logger.info(msg);
+    return { code: 0, message: msg };
 };
 
 export const RaisePullRequestOnBuildViolation: EventHandlerRegistration<any> = {
@@ -240,7 +239,7 @@ function stringRe(group: string, artifact: string): RegExp {
     return new RegExp(`[\"'](${group}):(${artifact}):(.*?)[\"']`, "gm");
 }
 
-function extractDeps(file: File, re: RegExp, violations: any): Dependency[] {
+function extractDeps(file: ProjectFile, re: RegExp, violations: any): Dependency[] {
     const content = file.getContentSync();
     const deps: Dependency[] = [];
     let match: RegExpExecArray;
@@ -263,7 +262,7 @@ function extractDeps(file: File, re: RegExp, violations: any): Dependency[] {
 
 export async function gradleDependencies(project: Project, buildDir: string, violations: any): Promise<BuildFile[]> {
     const globRoot = buildDir === "" ? buildDir : buildDir.replace(/\/^/, "") + "/";
-    const files = await toPromise(project.streamFiles(globRoot.replace(/\/^/, "") + "**/build.gradle"));
+    const files = await projectUtils.toPromise(project.streamFiles(globRoot.replace(/\/^/, "") + "**/build.gradle"));
     logger.info("Looking at: %j build.gradle's", files.length);
     return files.map(file => {
         logger.info("Looking for dependencies in: %j", file.path);
@@ -278,7 +277,7 @@ export async function gradleDependencies(project: Project, buildDir: string, vio
 }
 
 function updateDependency(
-    file: File,
+    file: ProjectFile,
     group: string,
     artifact: string,
     fromVersion: string,
@@ -398,5 +397,5 @@ export async function handleAtomistIssue(
                 msg, impact.repo.channels[0].channelId, { id: issue.summary });
         });
     }
-    return SuccessPromise;
+    return { code: 0 };
 }

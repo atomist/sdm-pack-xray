@@ -15,6 +15,7 @@
  */
 
 import {
+    AbstractSoftwareDeliveryMachine,
     ExtensionPack,
     LogSuppressor,
     metadata,
@@ -45,6 +46,6 @@ export const XraySupport: ExtensionPack = {
         sdm.addCommand(UnIgnoreViolationForProject);
         sdm.addCommand(CreateNewXrayIssue);
         // sdm.addEvent(RaisePullRequestOnBuildViolation);
-        sdm.addGoalImplementation("Xray Scan", XrayScan, xrayScanner(sdm), { logInterpreter: LogSuppressor });
+        (sdm as AbstractSoftwareDeliveryMachine).addGoalImplementation("Xray Scan", XrayScan, xrayScanner(sdm), { logInterpreter: LogSuppressor });
     },
 };
