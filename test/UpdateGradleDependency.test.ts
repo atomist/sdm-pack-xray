@@ -100,11 +100,9 @@ describe("updateGradleDependency", () => {
     });
     it("edits a real example from jfrogs project-examples training repo", done => {
         const p = InMemoryProject.of(
-            // tslint:disable-next-line:max-line-length
             { path: "gradle-examples/4/gradle-example-ci-server/services/webservice/build.gradle", content: jfrogProjectExample });
 
         const buildFiles =
-            // tslint:disable-next-line:max-line-length
             [{
                 path: "gradle-examples/4/gradle-example-ci-server/services/webservice/build.gradle",
                 dependencies: [{
@@ -117,9 +115,7 @@ describe("updateGradleDependency", () => {
                 }],
             }];
 
-        // tslint:disable-next-line:max-line-length
         updateGradleDependencies(p, buildFiles);
-        // tslint:disable-next-line:max-line-length
         assert(p.findFileSync("gradle-examples/4/gradle-example-ci-server/services/webservice/build.gradle")
             .getContentSync()
             .includes("1.3.9"));
@@ -132,33 +128,31 @@ describe("updateGradleDependency", () => {
 
 describe("listDependencies", () => {
 
-    it("edits build.gradle files regardless of where they are", done => {
+    it("edits build.gradle files regardless of where they are", async () => {
         const p = InMemoryProject.of(
             { path: "stuff/build.gradle", content: stringNotation },
-            { path: "build.gradle", content: mapNotation });
-        gradleDependencies(p, "", { issues: [] })
-            .then(r => {
-                // tslint:disable-next-line:max-line-length
-                assert.deepStrictEqual(r[0], {
-                    dependencies: [
-                        {
-                            artifact: "junit",
-                            group: "junit",
-                            version: "4.0",
-                            cves: [],
-                        }],
-                    path: "stuff/build.gradle",
-                });
-                assert.deepStrictEqual(r[1], {
-                    dependencies: [
-                        {
-                            artifact: "junit",
-                            group: "junit",
-                            version: "4.0",
-                            cves: [],
-                        }],
-                    path: "build.gradle",
-                });
-            }).then(done, done);
+            { path: "build.gradle", content: mapNotation },
+        );
+        const r = await gradleDependencies(p, "", { issues: [] });
+        assert.deepStrictEqual(r[0], {
+            dependencies: [
+                {
+                    artifact: "junit",
+                    group: "junit",
+                    version: "4.0",
+                    cves: [],
+                }],
+            path: "stuff/build.gradle",
+        });
+        assert.deepStrictEqual(r[1], {
+            dependencies: [
+                {
+                    artifact: "junit",
+                    group: "junit",
+                    version: "4.0",
+                    cves: [],
+                }],
+            path: "build.gradle",
+        });
     });
 });

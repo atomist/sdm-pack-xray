@@ -25,6 +25,7 @@ import {
     CommandListenerInvocation,
 } from "@atomist/sdm";
 import * as slack from "@atomist/slack-messages";
+// tslint:disable-next-line:import-blacklist
 import axios from "axios";
 import * as stringify from "json-stringify-safe";
 import _ = require("lodash");
@@ -203,7 +204,7 @@ export function defaultMessage(params: any): slack.SlackMessage {
         ]);
 }
 
-export function getRepoConfig() {
+export function getRepoConfig(): Promise<any> {
     // tslint:disable-next-line:max-line-length
     return axios.get(`${process.env.ARTIFACTORY_ROOT}/api/repositories/libs-release`,
         { headers: { "X-JFrog-Art-Api": process.env.ARTIFACTORY_TOKEN } })

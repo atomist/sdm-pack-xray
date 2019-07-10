@@ -29,9 +29,9 @@ import {
     SoftwareDeliveryMachine,
 } from "@atomist/sdm";
 import { readSdmVersion } from "@atomist/sdm-core";
+// tslint:disable-next-line:import-blacklist
 import axios from "axios";
 import * as types from "./typings/types";
-import { XrayViolations } from "./typings/types";
 
 export const XrayScan = new Goal({
     uniqueName: "XrayScan",
@@ -45,7 +45,7 @@ export const XrayScan = new Goal({
 });
 
 export async function rwlcVersion(gi: GoalInvocation): Promise<string> {
-    const sdmGoal = gi.sdmGoal;
+    const sdmGoal = gi.goalEvent;
     const version = await readSdmVersion(
         sdmGoal.repo.owner,
         sdmGoal.repo.name,
@@ -128,7 +128,7 @@ export interface BuildDetails {
  */
 export async function scanBuild(
     xray: XrayServerDetails,
-    build: BuildDetails): Promise<XrayViolations.XrayViolation[]> {
+    build: BuildDetails): Promise<types.XrayViolations.XrayViolation[]> {
     let url = `${xray.baseUrl}/scanBuild`;
     const config: any = {
         headers: {
@@ -148,5 +148,5 @@ export async function scanBuild(
     logger.info("Scanning build %j on %S", build, xray.baseUrl);
 
     const result = await axios.post(url, build, config);
-    return result.data.alerts as XrayViolations.XrayViolation[];
+    return result.data.alerts;
 }

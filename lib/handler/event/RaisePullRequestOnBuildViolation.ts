@@ -29,15 +29,15 @@ import {
     projectUtils,
 } from "@atomist/automation-client";
 import { EventHandlerRegistration } from "@atomist/sdm";
+// tslint:disable-next-line:import-blacklist
 import axios from "axios";
 import * as stringify from "json-stringify-safe";
 import * as _ from "lodash";
-import { XrayViolations } from "../../typings/types";
 import * as types from "../../typings/types";
 import { defaultMessage } from "../command/BlockDownloads";
 import { isNew } from "./Cache";
 
-const handleViolation = async (e: EventFired<XrayViolations.Subscription>, ctx: HandlerContext) => {
+const handleViolation = async (e: EventFired<types.XrayViolations.Subscription>, ctx: HandlerContext) => {
 
     const violation = latestBuildsOnly(e.data.XrayViolation[0]);
 
@@ -133,7 +133,7 @@ export const RaisePullRequestOnBuildViolation: EventHandlerRegistration<any> = {
     listener: handleViolation,
 };
 
-export function updateGradleDependencies(project: Project, files: BuildFile[]) {
+export function updateGradleDependencies(project: Project, files: BuildFile[]): void {
     files.forEach(file => {
         logger.info("Processing file %s", file.path);
         const buildFile = project.findFileSync(file.path);
@@ -282,7 +282,7 @@ function updateDependency(
     artifact: string,
     fromVersion: string,
     toVersion: string,
-    ...regexs: RegExp[]) {
+    ...regexs: RegExp[]): void {
     regexs.forEach(re => {
         const content = file.getContentSync();
         file.setContentSync(content.replace(re, str => {
@@ -334,7 +334,7 @@ export function cvesForDependency(violations: any, group: string, artifact: stri
  * but only if there is a single issue i.e. triggered by a new issue
  * @param violations
  */
-export function latestBuildsOnly(violation: XrayViolations.XrayViolation): XrayViolations.XrayViolation {
+export function latestBuildsOnly(violation: types.XrayViolations.XrayViolation): types.XrayViolations.XrayViolation {
     if (violation.issues.length !== 1) {
         logger.info("Not removing duplicate builds...");
         return violation;
@@ -357,18 +357,18 @@ export function latestBuildsOnly(violation: XrayViolations.XrayViolation): XrayV
     return violation;
 }
 
-export function isAtomistIssue(violation: XrayViolations.XrayViolation): boolean {
+export function isAtomistIssue(violation: types.XrayViolations.XrayViolation): boolean {
     return violation.issues.length === 1 && violation.issues[0].provider === types.XrayIssueProvider.Atomist;
 }
 
 interface Impact {
-    impacted: XrayViolations.ImpactedArtifacts[];
+    impacted: types.XrayViolations.ImpactedArtifacts[];
     sha: string;
     repo: types.FindBuildForCommit.Repo;
 }
 export async function handleAtomistIssue(
     ctx: HandlerContext,
-    violation: XrayViolations.XrayViolation): Promise<HandlerResult> {
+    violation: types.XrayViolations.XrayViolation): Promise<HandlerResult> {
     logger.info("New Security issue...");
     const issue = violation.issues[0];
     const buildIds = _.uniq(issue.impacted_artifacts.map(art => art.display_name));
