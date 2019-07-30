@@ -39,9 +39,9 @@
     "@atomist/slack-messages": ">=1.1.1"
   },
   "devDependencies": {
-    "@atomist/automation-client": "^1.6.1",
-    "@atomist/sdm": "^1.6.0",
-    "@atomist/sdm-core": "^1.6.0",
+    "@atomist/automation-client": "^1.6.2",
+    "@atomist/sdm": "^1.6.1",
+    "@atomist/sdm-core": "^1.6.1",
     "@atomist/slack-messages": "^1.1.1",
     "@types/mocha": "^5.2.7",
     "@types/node": "^9.4.1",
